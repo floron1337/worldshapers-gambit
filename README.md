@@ -1,12 +1,7 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# Worldshaper's Gambit
 
-### Folosiți template-ul corespunzător grupei voastre!
-
-| Laborant  | Link template                                |
-|-----------|----------------------------------------------|
-| Dragoș B  | https://github.com/Ionnier/oop-template      |
-| Tiberiu M | https://github.com/MaximTiberiu/oop-template |
-| Marius MC | https://github.com/mcmarius/oop-template     |
+## Scurtă descriere 
+**Worldshaper’s Gambit** este un joc de strategie și decizie în care jucătorul ia rolul unui lider global, luând decizii critice care afectează soarta planetei. Prin intermediul unui sistem de cărți generate dinamic, jucătorul trebuie să gestioneze diverse aspecte precum finanțele, opinia publică, puterea și industria, în timp ce se confruntă cu facțiuni rivale și încercă să mențină controlul. Cu multiple finaluri posibile și un gameplay accesibil, jocul oferă o experiență captivantă, plină de provocări și alegeri morale complexe.
 
 ### Important!
 
@@ -23,8 +18,8 @@ O cerință nu se consideră îndeplinită dacă este realizată doar prin cod g
 
 ### Tema 0
 
-- [ ] Nume proiect (poate fi schimbat ulterior)
-- [ ] Scurtă descriere a temei alese, ce v-ați propus să implementați
+- [x] Nume proiect (poate fi schimbat ulterior)
+- [x] Scurtă descriere a temei alese, ce v-ați propus să implementați
 
 ## Tema 1
 
