@@ -21,29 +21,29 @@ include(cmake/CopyHelper.cmake)
 
 ###############################################################################
 
-# external dependencies with FetchContent
-# include(FetchContent)
+## external dependencies with FetchContent
+#include(FetchContent)
 #
-# set(FETCHCONTENT_QUIET OFF)
-# set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
+#set(FETCHCONTENT_QUIET OFF)
+#set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
 #
-# NOTE: Also update env vars used for caching in
-#         - .github/actions/configure-cmake/action.yml
-#         - .github/workflows/cmake.yml
-# FetchContent_Declare(
-#         SomeLib
-#         GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
-#         GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
-#         GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
-# )
+##NOTE: Also update env vars used for caching in
+##     - .github/actions/configure-cmake/action.yml
+##     - .github/workflows/cmake.yml
+#FetchContent_Declare(
+#     SomeLib
+#     GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
+#     GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
+#     GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
+#)
 #
-# FetchContent_MakeAvailable(SomeLib)
+#FetchContent_MakeAvailable(SomeLib)
 
 ###############################################################################
 
 # external dependencies with find_package
 
-# find_package(Threads REQUIRED)
+find_package(Threads REQUIRED)
 
 ###############################################################################
 
@@ -51,6 +51,10 @@ include(cmake/CopyHelper.cmake)
 add_executable(${MAIN_EXECUTABLE_NAME}
     main.cpp
     generated/src/Helper.cpp
+        src/Game.cpp
+        headers/Game.h
+        src/MenuScreen.cpp
+        headers/MenuScreen.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
@@ -64,6 +68,21 @@ set_compiler_flags(RUN_SANITIZERS TRUE TARGET_NAMES ${MAIN_EXECUTABLE_NAME})
 
 # use SYSTEM so cppcheck and clang-tidy do not report warnings from these directories
 target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE generated/include)
+target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE
+        /usr/include/SFML
+        generated/include
+)
+target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE
+        /usr/lib/x86_64-linux-gnu
+)
+
+target_link_libraries(${MAIN_EXECUTABLE_NAME}
+        sfml-graphics
+        sfml-window
+        sfml-system
+        OpenGL
+        Threads::Threads
+)
 # target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 # target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
 # target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
