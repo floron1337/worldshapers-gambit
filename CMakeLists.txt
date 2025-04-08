@@ -5,7 +5,6 @@ cmake_minimum_required(VERSION 3.26)
 set(MAIN_PROJECT_NAME "oop")
 set(MAIN_EXECUTABLE_NAME "${MAIN_PROJECT_NAME}")
 
-
 project(${MAIN_PROJECT_NAME})
 # set(CMAKE_PROJECT_VERSION_MAJOR 0)
 # set(CMAKE_PROJECT_VERSION_MINOR 0)
@@ -18,26 +17,20 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include(cmake/Options.cmake)
 include(cmake/CompilerFlags.cmake)
 include(cmake/CopyHelper.cmake)
+include(FetchContent)
 
 ###############################################################################
 
-## external dependencies with FetchContent
-#include(FetchContent)
-#
-#set(FETCHCONTENT_QUIET OFF)
-#set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
-#
-##NOTE: Also update env vars used for caching in
-##     - .github/actions/configure-cmake/action.yml
-##     - .github/workflows/cmake.yml
-#FetchContent_Declare(
-#     SomeLib
-#     GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
-#     GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
-#     GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
-#)
-#
-#FetchContent_MakeAvailable(SomeLib)
+FetchContent_Declare(
+        SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG        2.6.1
+        # GIT_TAG        7f1162dfea4969bc17417563ac55d93b72e84c1e # 3.0.0
+        # GIT_TAG        origin/master
+        GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
+)
+
+FetchContent_MakeAvailable(SFML)
 
 ###############################################################################
 
