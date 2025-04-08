@@ -33,12 +33,12 @@ set(WARNINGS_AS_ERRORS OFF)
 
 # NOTE: Also update SFML_VERSION env var in .github/workflows/cmake.yml:33
 FetchContent_Declare(
-        SFML
-        GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG        2.6.2
-        # GIT_TAG        5383d2b3948f805af55c9f8a4587ac72ec5981d1 # 2.6.2
-        # GIT_TAG        origin/master
-        GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
+    SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG        2.6.2
+    # GIT_TAG        5383d2b3948f805af55c9f8a4587ac72ec5981d1 # 2.6.2
+    # GIT_TAG        origin/master
+    GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
 )
 
 FetchContent_MakeAvailable(SFML)
@@ -57,12 +57,10 @@ endif()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${MAIN_EXECUTABLE_NAME}
-        main.cpp
-        generated/src/Helper.cpp
-        src/Game.cpp
-        headers/Game.h
-        src/MenuScreen.cpp
-        headers/MenuScreen.h
+    main.cpp
+    generated/src/Helper.cpp
+    src/Game.cpp
+    src/MenuScreen.cpp
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
@@ -100,13 +98,13 @@ endif()
 # remove this if not using audio or if using SFML 3
 if (WIN32 AND SFML_BUILD_AUDIO)
     add_custom_command(TARGET ${MAIN_EXECUTABLE_NAME} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${SFML_SOURCE_DIR}/extlibs/bin/x64/openal32.dll
-            $<TARGET_FILE_DIR:${MAIN_EXECUTABLE_NAME}>
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+         ${SFML_SOURCE_DIR}/extlibs/bin/x64/openal32.dll
+         $<TARGET_FILE_DIR:${MAIN_EXECUTABLE_NAME}>
     )
 endif()
 
 
-copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+# copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})

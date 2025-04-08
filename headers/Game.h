@@ -8,7 +8,7 @@ class Game {
 
 public:
     Game();
-    Game(int max_fps_);
+    explicit Game(int max_fps_);
     ~Game();
 
     void start();

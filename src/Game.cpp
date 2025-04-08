@@ -1,7 +1,8 @@
 #include "../headers/Game.h"
 #include "../headers/MenuScreen.h"
 
-
+#include <chrono>
+#include <thread>
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -31,6 +32,10 @@ void Game::start() {
     {
         window.clear();
         menu_screen.drawScreen(window);
+
+        using namespace std::chrono_literals;
+        std::this_thread::sleep_for(300ms);
+
         window.display();
     }
 }
