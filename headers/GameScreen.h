@@ -13,13 +13,12 @@ class GameScreen {
     sf::Texture background_texture;
 
     sf::RenderWindow &window;
-    int last_mouse_x{};
+    int last_mouse_x;
 
 public:
     explicit GameScreen(sf::RenderWindow &window_);
     void drawScreen();
     void setLastMouseX(int x);
-    int getLastMouseX() const;
 };
 
 

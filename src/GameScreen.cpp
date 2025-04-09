@@ -18,10 +18,6 @@ GameScreen::GameScreen(sf::RenderWindow &window_): window(window_){
     background_sprite.setTexture(background_texture);
 }
 
-int GameScreen::getLastMouseX() const {
-    return last_mouse_x;
-}
-
 void GameScreen::setLastMouseX(int x) {
     last_mouse_x = x;
 }
