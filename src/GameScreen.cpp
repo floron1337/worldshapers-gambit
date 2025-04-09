@@ -18,7 +18,7 @@ GameScreen::GameScreen(sf::RenderWindow &window_): window(window_){
     background_sprite.setTexture(background_texture);
 }
 
-int GameScreen::getLastMouseX() {
+int GameScreen::getLastMouseX() const {
     return last_mouse_x;
 }
 
@@ -88,7 +88,7 @@ void GameScreen::drawScreen() {
     }
 
     // TODO: MOVE THIS LOGIC
-    sf::Text card_text("Ai fost ales liderul Echipei Planeta.\nAccepti? milsugi", monospace_font, 24); // a font is required to make a text object
+    sf::Text card_text("Ai fost ales liderul Echipei Planeta.\nAccepti?", monospace_font, 24); // a font is required to make a text object
     card_text.setFillColor(sf::Color::White);
     sf::FloatRect card_text_bounds = card_text.getLocalBounds();
     card_text.setOrigin(

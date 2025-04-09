@@ -15,11 +15,11 @@ SomeClass *getC() {
 
 
 int main() {
-    SomeClass *c = getC();
+    const SomeClass *c = getC();
     std::cout << c << "\n";
     delete c;  // comentarea acestui rând ar trebui să ducă la semnalarea unui mem leak
 
-    Game game_instance{};
+    const Game game_instance{};
     game_instance.start();
 
     return 0;
