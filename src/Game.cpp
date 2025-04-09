@@ -1,11 +1,12 @@
 #include "../headers/Game.h"
 #include "../headers/MenuScreen.h"
+#include "../headers/GameScreen.h"
 
-#include <chrono>
 #include <thread>
-#include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+
+#include "../headers/ScreenManager.h"
 
 
 Game::Game() {
@@ -26,15 +27,17 @@ void Game::start() {
     sf::RenderWindow window(desktop, "Worldshaper's Gambit", sf::Style::Fullscreen);
     window.setFramerateLimit(this->max_fps);
 
-    MenuScreen menu_screen;
+    ScreenManager screen_manager(window);
+    screen_manager.setScreen(ScreenManager::Menu);
 
     while (window.isOpen())
     {
         window.clear();
-        menu_screen.drawScreen(window);
 
-        using namespace std::chrono_literals;
-        std::this_thread::sleep_for(300ms);
+        screen_manager.drawScreen();
+
+        //using namespace std::chrono_literals;
+        //std::this_thread::sleep_for(300ms);
 
         window.display();
     }

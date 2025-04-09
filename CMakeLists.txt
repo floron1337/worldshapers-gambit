@@ -62,6 +62,10 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     src/Game.cpp
     src/GameScreen.cpp
     src/MenuScreen.cpp
+        src/Button.cpp
+        headers/Button.h
+        src/ScreenManager.cpp
+        headers/ScreenManager.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

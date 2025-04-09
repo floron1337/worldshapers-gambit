@@ -19,7 +19,7 @@ int main() {
     std::cout << c << "\n";
     delete c;  // comentarea acestui rând ar trebui să ducă la semnalarea unui mem leak
 
-    Game game_instance;
+    Game game_instance{};
     game_instance.start();
 
     return 0;
