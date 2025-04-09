@@ -6,6 +6,7 @@
 #include <iostream>
 
 GameScreen::GameScreen(sf::RenderWindow &window_): window(window_){
+    last_mouse_x = 0;
     if (!monospace_font.loadFromFile("../fonts/MonospaceBold.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
         return;

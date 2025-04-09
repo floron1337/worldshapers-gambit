@@ -4,12 +4,11 @@
 
 #include "../headers/Button.h"
 
-Button::Button(const std::string &btn_text_str_, float pos_x, float pos_y, float size_x, float size_y, const sf::Font &font, int font_size, const sf::Color &text_color, const sf::Color &bg_color) {
-    btn_text_str = btn_text_str_;
+Button::Button(const std::string &btn_text_str_, float pos_x, float pos_y, float size_x, float size_y, const sf::Font &font, int font_size, const sf::Color &text_color, const sf::Color &bg_color) : btn_text_str(btn_text_str_),
+      btn_shape(sf::Vector2f(size_x, size_y))
+{
 
-    btn_shape = sf::RectangleShape(sf::Vector2f(size_x, size_y)); // Size: 200x50
     btn_shape.setFillColor(bg_color); // Set button background color
-
     btn_shape.setOrigin(btn_shape.getSize() / 2.0f);
     btn_shape.setPosition(pos_x, pos_y);
 
