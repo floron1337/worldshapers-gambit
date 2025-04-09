@@ -11,7 +11,7 @@ public:
     explicit Game(int max_fps_);
     ~Game();
 
-    void start();
+    void start() const;
 };
 
 

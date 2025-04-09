@@ -19,7 +19,7 @@ Game::Game(int max_fps_) {
 
 Game::~Game() = default;
 
-void Game::start() {
+void Game::start() const {
     // Get the desktop resolution
     const sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 
@@ -28,6 +28,9 @@ void Game::start() {
     window.setFramerateLimit(this->max_fps);
 
     ScreenManager screen_manager(window);
+
+    // ca sa nu planga cppcheck
+    ScreenManager::Screen current_screen = screen_manager.getCurrentScreen();
     screen_manager.setScreen(ScreenManager::Menu);
 
     while (window.isOpen())

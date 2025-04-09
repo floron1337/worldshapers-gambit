@@ -14,7 +14,7 @@ void ScreenManager::setScreen(const Screen screen) {
     current_screen = screen;
 }
 
-ScreenManager::Screen ScreenManager::getCurrentScreen(){
+ScreenManager::Screen ScreenManager::getCurrentScreen() const {
     return current_screen;
 }
 
