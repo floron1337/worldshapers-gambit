@@ -26,7 +26,7 @@ private:
 public:
     explicit ScreenManager(sf::RenderWindow &window_);
     void setScreen(Screen screen);
-    Screen getCurrentScreen() const;
+    Screen getCurrentScreen();
     void drawScreen();
 };
 

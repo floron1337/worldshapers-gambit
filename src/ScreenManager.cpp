@@ -5,15 +5,16 @@
 #include "../headers/ScreenManager.h"
 
 ScreenManager::ScreenManager(sf::RenderWindow &window_): window(window_), menu_screen(window_, this), game_screen(window_) {
-    current_screen = ScreenManager::Menu;
-    this->setScreen(ScreenManager::Menu);
+    current_screen = Menu;
+    this->setScreen(Menu);
+    window.setMouseCursorVisible(true);
 }
 
 void ScreenManager::setScreen(const Screen screen) {
     current_screen = screen;
 }
 
-ScreenManager::Screen ScreenManager::getCurrentScreen() const {
+ScreenManager::Screen ScreenManager::getCurrentScreen(){
     return current_screen;
 }
 
