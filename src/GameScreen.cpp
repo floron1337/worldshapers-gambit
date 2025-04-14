@@ -5,7 +5,7 @@
 #include "../headers/GameScreen.h"
 #include <iostream>
 
-GameScreen::GameScreen(sf::RenderWindow &window_): window(window_){
+GameScreen::GameScreen(sf::RenderWindow &window_): window(window_), cardGFX(window_, monospace_font, window.getSize().x / 2.0f, 225.0f) {
     last_mouse_x = 0;
     if (!monospace_font.loadFromFile("../fonts/MonospaceBold.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
@@ -17,12 +17,12 @@ GameScreen::GameScreen(sf::RenderWindow &window_): window(window_){
         return;
     }
     background_sprite.setTexture(background_texture);
+    cardGFX.reloadCardTextures();
 }
 
 void GameScreen::setLastMouseX(int x) {
     last_mouse_x = x;
 }
-
 
 void GameScreen::drawScreen() {
     int windowX = window.getSize().x;
@@ -68,62 +68,27 @@ void GameScreen::drawScreen() {
     bottom_text.setPosition(windowX / 2.0f, windowY - 85); // Move the text to the center of the window
     window.draw(bottom_text);
 
-
-    int newX = -1;
+    int mouseX = -1;
 
     sf::Event event{};
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
         else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-
+            if (event.mouseButton.x < (windowX - windowX / 4.0f) / 2.0f)
+                cardGFX.triggerCardChange(CardGFX::Left);
+            else if (event.mouseButton.x > (windowX + windowX / 4.0f) / 2.0f)
+                cardGFX.triggerCardChange(CardGFX::Right);
         }
         else if (event.type == sf::Event::MouseMoved) {
-            //std::cout << "Mouse moved" << event.mouseMove.x << " " << event.mouseMove.y << std::endl;
-            newX = event.mouseMove.x;
+            mouseX = event.mouseMove.x;
         }
     }
 
-    // TODO: MOVE THIS LOGIC
-    sf::Text card_text("Ai fost ales liderul Echipei Planeta.\nAccepti?", monospace_font, 24); // a font is required to make a text object
-    card_text.setFillColor(sf::Color::White);
-    sf::FloatRect card_text_bounds = card_text.getLocalBounds();
-    card_text.setOrigin(
-        card_text_bounds.left + card_text_bounds.width / 2.0f,
-        card_text_bounds.top + card_text_bounds.height / 2.0f
-    );
-    card_text.setPosition(windowX / 2.0f, 215); // Move the text to the center of the window
-    window.draw(card_text);
+    if (mouseX == -1)
+        mouseX = last_mouse_x;
 
-    sf::Texture card_texture;
-    if (!card_texture.loadFromFile("../images/cards/tron.png")) {
-        std::cerr << "Failed to load texture!" << std::endl;
-    }
+    cardGFX.draw(mouseX);
 
-    sf::Sprite sprite;
-    sprite.setTexture(card_texture);
-    sprite.setScale(0.65f, 0.65f);
-    sf::FloatRect bounds = sprite.getLocalBounds();
-    sprite.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
-
-    if (newX == -1)
-        newX = last_mouse_x;
-
-    int diffX = newX - (windowX / 2);
-
-    float offsetX = newX - diffX * 0.6f;
-
-    float minX = windowX / 3.f;
-    float maxX = windowX - windowX / 3.f;
-    if (offsetX < minX) offsetX = minX;
-    if (offsetX > maxX) offsetX = maxX;
-
-
-    int newY = std::abs(newX - windowX / 2);
-    float rotationAngle = diffX * 0.02f;
-
-    sprite.setPosition(offsetX, windowY / 2.0f + newY / 8);
-    sprite.setRotation(rotationAngle);
-    window.draw(sprite);
-    setLastMouseX(newX);
+    setLastMouseX(mouseX);
 }

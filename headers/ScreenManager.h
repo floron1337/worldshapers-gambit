@@ -30,6 +30,4 @@ public:
     void drawScreen();
 };
 
-
-
 #endif //SCREENMANAGER_H

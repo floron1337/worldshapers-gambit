@@ -66,6 +66,10 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Button.h
         src/ScreenManager.cpp
         headers/ScreenManager.h
+        src/CardGFX.cpp
+        headers/CardGFX.h
+        src/Card.cpp
+        headers/Card.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

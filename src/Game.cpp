@@ -40,7 +40,7 @@ void Game::start() const {
     }
     // ######################
 
-    screen_manager.setScreen(ScreenManager::Menu);
+    screen_manager.setScreen(ScreenManager::Game);
 
     while (window.isOpen())
     {
@@ -48,8 +48,8 @@ void Game::start() const {
 
         screen_manager.drawScreen();
 
-        //using namespace std::chrono_literals;
-        //std::this_thread::sleep_for(300ms);
+        using namespace std::chrono_literals;
+        std::this_thread::sleep_for(5ms);
 
         window.display();
     }

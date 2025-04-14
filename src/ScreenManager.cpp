@@ -30,6 +30,3 @@ void ScreenManager::drawScreen() {
             break;
     }
 }
-
-
-

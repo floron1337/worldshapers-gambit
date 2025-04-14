@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "CardGFX.h"
+
 class GameScreen {
     sf::Font monospace_font;
     sf::Sprite background_sprite;
@@ -14,6 +16,8 @@ class GameScreen {
 
     sf::RenderWindow &window;
     int last_mouse_x;
+
+    CardGFX cardGFX;
 
 public:
     explicit GameScreen(sf::RenderWindow &window_);
