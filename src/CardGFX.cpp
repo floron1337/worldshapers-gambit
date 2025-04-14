@@ -9,12 +9,9 @@
 #include "../headers/CardGFX.h"
 
 CardGFX::CardGFX(sf::RenderWindow &window_, sf::Font& card_font_, float card_posX_, float card_posY_): card_font(
-    card_font_), window(window_) {
+    card_font_), window(window_), current_card("carte 1", "../images/cards/revolt.png", "../images/cards/back.png"), next_card("carte 2", "../images/cards/tron.png", "../images/cards/back.png") {
     card_posX = card_posX_;
     card_posY = card_posY_;
-
-    current_card = Card("carte 1", "../images/cards/revolt.png", "../images/cards/back.png");
-    next_card = Card("carte 2", "../images/cards/tron.png", "../images/cards/back.png");
     gfx_state = Idle;
 }
 
