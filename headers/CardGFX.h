@@ -15,6 +15,9 @@ public:
         Right,
     };
 private:
+    sf::RenderWindow &window;
+    sf::Font &card_font;
+
     Card current_card;
     Card next_card;
 
@@ -25,11 +28,9 @@ private:
     sf::Texture next_card_back_texture;
     sf::Sprite next_card_sprite;
 
-    sf::Font &card_font;
     float card_posX = 0;
     float card_posY = 0;
 
-    sf::RenderWindow &window;
     SwipeDirection swipe_direction = Left;
     float swipe_posX = 0;
 
