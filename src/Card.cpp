@@ -49,14 +49,14 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {
     return os;
 }
 
-std::string Card::getText() const{
+const std::string &Card::getText() const{
     return card_text;
 }
 
-std::string Card::getFrontLocation() const{
+const std::string& Card::getFrontLocation() const{
     return card_front_location;
 }
 
-std::string Card::getBackLocation() const{
+const std::string& Card::getBackLocation() const{
     return card_back_location;
 }

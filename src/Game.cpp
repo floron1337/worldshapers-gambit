@@ -1,16 +1,10 @@
 #include "../headers/Game.h"
+#include "../headers/ScreenManager.h"
 
 #include <iostream>
 
-#include "../headers/MenuScreen.h"
-#include "../headers/GameScreen.h"
-
-#include <thread>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-
-#include "../headers/ScreenManager.h"
-
 
 Game::Game() {
     this->max_fps = 60;
@@ -40,17 +34,12 @@ void Game::start() const {
     }
     // ######################
 
-    screen_manager.setScreen(ScreenManager::Game);
+    // screen_manager.setScreen(ScreenManager::Game);
 
     while (window.isOpen())
     {
         window.clear();
-
         screen_manager.drawScreen();
-
-        using namespace std::chrono_literals;
-        std::this_thread::sleep_for(5ms);
-
         window.display();
     }
 }

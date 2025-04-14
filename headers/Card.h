@@ -22,9 +22,9 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Card& card);
 
-    std::string getFrontLocation() const;
-    std::string getBackLocation() const;
-    [[nodiscard]] std::string getText() const;
+    [[nodiscard]]const std::string& getFrontLocation() const;
+    [[nodiscard]]const std::string& getBackLocation() const;
+    [[nodiscard]]const std::string& getText() const;
 };
 
 

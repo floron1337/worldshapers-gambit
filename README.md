@@ -1,7 +1,93 @@
 # Worldshaper's Gambit
 
-## Scurtă descriere 
 **Worldshaper’s Gambit** este un joc de strategie și decizie în care jucătorul ia rolul unui lider global, luând decizii critice care afectează soarta planetei. Prin intermediul unui sistem de cărți generate dinamic, jucătorul trebuie să gestioneze diverse aspecte precum finanțele, opinia publică, puterea și industria, în timp ce se confruntă cu facțiuni rivale și încercă să mențină controlul. Cu multiple finaluri posibile și un gameplay accesibil, jocul oferă o experiență captivantă, plină de provocări și alegeri morale complexe.
+
+## Descriere Generală
+
+Într-un viitor tensionat și instabil, jucătorul conduce **Ordinul Planetar**, partidul dominant al Terrei. Printr-un sistem inovator de **cărți generate dinamic**, acesta trebuie să gestioneze:
+
+- **Finanțele**
+- **Opinia publică**
+- **Puterea politică**
+- **Industria**
+
+În același timp, jucătorul este nevoit să confrunte și să manipuleze diverse **facțiuni rivale**, fiecare cu ideologii, scopuri și metode proprii. Deciziile au consecințe directe asupra evoluției campaniei și pot duce la multiple finaluri posibile, unele triumfătoare, altele dezastruoase.
+
+---
+
+## Facțiuni
+
+### 🔷 Ordinul Planetar (The Planetary Order)
+- **Rol:** Partidul conducător al planetei, condus de jucător.
+- **Scop:** Menținerea puterii cât mai mult timp posibil și eliminarea/recrutarea facțiunilor rivale.
+- **Ideologie:**
+  - Globalism autoritar
+  - Militarism
+  - Turbo-capitalism
+  - Anti-naționalism
+  - Control strict asupra vieții personale
+
+---
+
+### ⚫ Eclipsa Puterii (Power Eclipse)
+- **Rol:** Principalul grup revoluționar.
+- **Scop:** Răsturnarea conducerii și instaurarea unei societăți egale, fără lideri.
+- **Strategie:** Poate fi asuprită sau manipulată pentru a evita o revoltă majoră.
+- **Ideologie:**
+  - Anarho-egalitarism
+  - Anticapitalism
+  - Antimilitarism
+  - Descentralizare
+
+---
+
+### 👑 Monarhia Omniterra (Omniterra Monarchy)
+- **Rol:** Adversar politic direct.
+- **Scop:** Restaurația regalității prin impunerea unui rege absolut.
+- **Strategie:** Principalul inamic politic, necesită alocarea resurselor strategice pentru contracarare.
+- **Ideologie:**
+  - Monarhie absolută
+  - Cultul personalității
+  - Tehno-feudalism
+  - Sclavie modernă
+  - Glorificarea trecutului
+
+---
+
+### ☦️ Legiunea Credinței Oarbe (The Legion of Blind Faith)
+- **Rol:** Facțiune religioasă radicală.
+- **Scop:** Îndeplinirea unei profeții misterioase și dominarea spirituală a planetei.
+- **Strategie:** Operează prin celule izolate, specializate în infiltrare, asasinate și teroare.
+- **Ideologie:**
+  - Fanatism religios
+  - Auto-distrugere în numele profeției
+
+---
+
+### 🕊️ Cultul Autodeterminării (The Cult of Self Determination)
+- **Rol:** Mișcare radicală tradiționalistă.
+- **Scop:** Dizolvarea Ordinului Planetar și reîntoarcerea la valorile trecutului.
+- **Ideologie:**
+  - Ultranationalism
+  - Tradiționalism extremist
+  - Glorificarea trecutului
+  - Credința în superioritatea rasială
+
+---
+
+## Caracteristici cheie
+
+- 🎴 **Sistem de decizii bazat pe cărți generate dinamic**
+- 🔄 **Gameplay cu finaluri multiple, dependente de alegerile morale**
+- 🌍 **Gestionare complexă a resurselor și a influenței globale**
+- 🧠 **Conflict ideologic profund și provocări politice reale**
+- 🎯 **Accesibil, dar profund strategic**
+
+---
+
+## Obiectivul jucătorului
+
+Rămâi la conducerea planetei prin orice mijloace: diplomație, propagandă, represiune sau manipulare. Înfruntă haosul și modelează lumea după viziunea ta.
 
 ### Important!
 
@@ -24,21 +110,21 @@ O cerință nu se consideră îndeplinită dacă este realizată doar prin cod g
 ## Tema 1
 
 #### Cerințe
-- [ ] definirea a minim **3-4 clase** folosind compunere cu clasele definite de voi; moștenirile nu se iau în considerare aici
-- [ ] constructori de inițializare cu parametri pentru fiecare clasă
-- [ ] pentru o aceeași (singură) clasă: constructor de copiere, `operator=` de copiere, destructor
-<!-- - [ ] pentru o altă clasă: constructor de mutare, `operator=` de mutare, destructor -->
-<!-- - [ ] pentru o altă clasă: toate cele 5 funcții membru speciale -->
-- [ ] `operator<<` pentru **toate** clasele pentru afișare (`std::ostream`) folosind compunere de apeluri cu `operator<<`
-- [ ] cât mai multe `const` (unde este cazul) și funcții `private`
-- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități netriviale specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe
+- [x] definirea a minim **3-4 clase** folosind compunere cu clasele definite de voi; moștenirile nu se iau în considerare aici
+- [x] constructori de inițializare cu parametri pentru fiecare clasă
+- [x] pentru o aceeași (singură) clasă: constructor de copiere, `operator=` de copiere, destructor
+<!-- - [x] pentru o altă clasă: constructor de mutare, `operator=` de mutare, destructor -->
+<!-- - [x] pentru o altă clasă: toate cele 5 funcții membru speciale -->
+- [x] `operator<<` pentru **toate** clasele pentru afișare (`std::ostream`) folosind compunere de apeluri cu `operator<<`
+- [x] cât mai multe `const` (unde este cazul) și funcții `private`
+- [x] implementarea a minim 3 funcții membru publice pentru funcționalități netriviale specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe
   - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector
-- [ ] scenariu de utilizare **cu sens** a claselor definite:
+- [x] scenariu de utilizare **cu sens** a claselor definite:
   - crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
   - vor fi adăugate în fișierul `tastatura.txt` DOAR exemple de date de intrare de la tastatură (dacă există); dacă aveți nevoie de date din fișiere, creați alte fișiere separat
-- [ ] minim 50-55% din codul propriu să fie C++, `.gitattributes` configurat corect
-- [ ] tag de `git`: de exemplu `v0.1`
-- [ ] serviciu de integrare continuă (CI) cu **toate bifele**; exemplu: GitHub Actions
+- [x] minim 50-55% din codul propriu să fie C++, `.gitattributes` configurat corect
+- [x] tag de `git`: de exemplu `v0.1`
+- [x] serviciu de integrare continuă (CI) cu **toate bifele**; exemplu: GitHub Actions
 
 ## Tema 2
 
