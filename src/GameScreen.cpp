@@ -7,12 +7,12 @@
 
 GameScreen::GameScreen(sf::RenderWindow &window_): window(window_), cardGFX(window_, monospace_font, window.getSize().x / 2.0f, 225.0f) {
     last_mouse_x = 0;
-    if (!monospace_font.loadFromFile("../fonts/MonospaceBold.ttf")) {
+    if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
         return;
     }
 
-    if (!background_texture.loadFromFile("../images/game_background.png")) {
+    if (!background_texture.loadFromFile("./images/game_background.png")) {
         std::cerr << "Failed to load background image" << std::endl;
         return;
     }

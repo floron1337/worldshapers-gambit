@@ -7,8 +7,8 @@
 
 Card::Card()
     : card_text(""),
-      card_front_location("../images/cards/placeholder.png"),
-      card_back_location("../images/cards/back.png")
+      card_front_location("images/cards/placeholder.png"),
+      card_back_location("images/cards/back.png")
 {
 }
 
@@ -20,7 +20,6 @@ Card::Card(const Card &other)
 {
 
 }
-
 
 Card& Card::operator=(const Card &other) {
     if (this == &other) {

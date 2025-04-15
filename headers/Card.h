@@ -9,8 +9,8 @@
 
 class Card {
     std::string card_text = "";
-    std::string card_front_location = "../images/cards/placeholder.png";
-    std::string card_back_location = "../images/cards/placeholder.png";
+    std::string card_front_location = "./images/cards/placeholder.png";
+    std::string card_back_location = "./images/cards/placeholder.png";
 
     Card * next_card = nullptr;
 public:

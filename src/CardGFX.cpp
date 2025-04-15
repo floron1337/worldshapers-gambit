@@ -15,11 +15,11 @@ CardGFX::CardGFX(sf::RenderWindow &window_,
     : window(window_),            // matches order in class
       card_font(card_font_),      // matches order in class
       current_card("carte 1",
-                   "../images/cards/revolt.png",
-                   "../images/cards/back.png"),
+                   "./images/cards/revolt.png",
+                   "./images/cards/back.png"),
       next_card("carte 2",
-                "../images/cards/tron.png",
-                "../images/cards/back.png")
+                "./images/cards/tron.png",
+                "./images/cards/back.png")
 {
     card_posX = card_posX_;
     card_posY = card_posY_;
