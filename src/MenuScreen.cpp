@@ -7,17 +7,17 @@
 MenuScreen::MenuScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_): window(window_){
     screen_manager = screen_manager_;
 
-    if (!monospace_font.loadFromFile("../fonts/VeraMono.ttf")) {
+    if (!monospace_font.loadFromFile("./fonts/VeraMono.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
         return;
     }
 
-    if (!monospace_font_bold.loadFromFile("../fonts/VeraMoBd.ttf")) {
+    if (!monospace_font_bold.loadFromFile("./fonts/VeraMoBd.ttf")) {
         std::cerr << "Failed to load monospace bold font" << std::endl;
         return;
     }
 
-    if (!background_texture.loadFromFile("../images/menu_background.png")) {
+    if (!background_texture.loadFromFile("./images/menu_background.png")) {
         std::cerr << "Failed to load background image" << std::endl;
         return;
     }
@@ -66,7 +66,6 @@ void MenuScreen::drawScreen() {
                 screen_manager->setScreen(ScreenManager::Game);
             }
             if (settings_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
-                std::cout << "Settings button clicked" << std::endl;
             }
             else if (exit_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 window.close();

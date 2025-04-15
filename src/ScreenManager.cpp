@@ -30,3 +30,24 @@ void ScreenManager::drawScreen() {
             break;
     }
 }
+
+std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) {
+    ScreenManager::Screen current_screen = screen_manager.getCurrentScreen();
+    os << "Game is currently running on the screen: ";
+
+    switch (current_screen) {
+        case 0:
+            os << "Menu";
+            break;
+        case 1:
+            os << "Settings";
+            break;
+        case 2:
+            os << "Game";
+            break;
+    }
+
+    os << std::endl;
+
+    return os;
+}

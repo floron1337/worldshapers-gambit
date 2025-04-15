@@ -28,6 +28,8 @@ public:
     void setScreen(Screen screen);
     Screen getCurrentScreen() const;
     void drawScreen();
+
+    friend std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager);
 };
 
 #endif //SCREENMANAGER_H

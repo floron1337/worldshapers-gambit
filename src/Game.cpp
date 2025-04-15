@@ -30,7 +30,7 @@ void Game::start() const {
     // UTIL MAI TARZIU
     ScreenManager::Screen current_screen = screen_manager.getCurrentScreen();
     if (current_screen == ScreenManager::Menu) {
-        std::cout << "Game started" << std::endl;
+        std::cout << screen_manager << std::endl;
     }
     // ######################
 
