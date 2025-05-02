@@ -17,7 +17,7 @@ void ScreenManager::changeScreen(CurrentScreenEnum screen) {
         {
             std::unique_ptr<Screen> new_screen(new MenuScreen(window, this));
             current_screen.reset();
-            current_screen = move(new_screen);
+            current_screen = std::move(new_screen);
             break;
         }
         case Settings:
@@ -29,7 +29,7 @@ void ScreenManager::changeScreen(CurrentScreenEnum screen) {
         {
             std::unique_ptr<Screen> new_screen_game(new GameScreen(window, this));
             current_screen.reset();
-            current_screen = move(new_screen_game);
+            current_screen = std::move(new_screen_game);
             break;
         }
         default:

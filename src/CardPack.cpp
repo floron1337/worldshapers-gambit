@@ -15,5 +15,9 @@ CardPack::CardPack(const std::string &pack_name_,
       shuffle_cards(shuffle_cards_),      // —
       final_pack(final_pack_)
 {
-    // constructor body left intentionally empty
+
+
+    // TODO: COD INUTIL CA SA COMPILEZE, O SA FIE IMPLEMENTATE MAI TARZIU
+    final_pack = true;
+    shuffle_cards = true;
 }
