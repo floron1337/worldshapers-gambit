@@ -10,10 +10,10 @@ CardPack::CardPack(const std::string &pack_name_,
                    bool final_pack_,
                    const std::string &next_pack_name_)
     : pack_name(pack_name_),        // copies (or moves) directly into the member
-      cards(cards_),                // idem
-      shuffle_cards(shuffle_cards_),// direct initialization for built-ins
-      final_pack(final_pack_),      // —
-      next_pack_name(next_pack_name_)
+      next_pack_name(next_pack_name_),                // idem
+      cards(cards_),// direct initialization for built-ins
+      shuffle_cards(shuffle_cards_),      // —
+      final_pack(final_pack_)
 {
     // constructor body left intentionally empty
 }
