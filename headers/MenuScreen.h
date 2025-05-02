@@ -3,20 +3,13 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Screen.h"
 class ScreenManager;
 
-class MenuScreen {
-    sf::Font monospace_font;
-    sf::Font monospace_font_bold;
-    sf::Sprite background_sprite;
-    sf::Texture background_texture;
-
-    sf::RenderWindow &window;
-    ScreenManager *screen_manager;
-
+class MenuScreen : public Screen{
 public:
     explicit MenuScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_);
-    void drawScreen();
+    void drawScreen() override;
 };
 
 #endif //MENUSCREEN_H

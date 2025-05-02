@@ -13,13 +13,7 @@ CardGFX::CardGFX(sf::RenderWindow &window_,
                  float card_posX_,
                  float card_posY_)
     : window(window_),            // matches order in class
-      card_font(card_font_),      // matches order in class
-      current_card("carte 1",
-                   "./images/cards/revolt.png",
-                   "./images/cards/back.png"),
-      next_card("carte 2",
-                "./images/cards/tron.png",
-                "./images/cards/back.png")
+      card_font(card_font_)      // matches order in class
 {
     card_posX = card_posX_;
     card_posY = card_posY_;
@@ -202,4 +196,11 @@ void CardGFX::setCard(const Card &card_) {
 
 void CardGFX::setNextCard(const Card &card_) {
     next_card = card_;
+}
+
+bool CardGFX::isIdle() const {
+    if (gfx_state == Idle)
+        return true;
+
+    return false;
 }

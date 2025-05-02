@@ -70,6 +70,14 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/CardGFX.h
         src/Card.cpp
         headers/Card.h
+        src/GameRNG.cpp
+        headers/GameRNG.h
+        src/CardPack.cpp
+        headers/CardPack.h
+        src/Screen.cpp
+        headers/Screen.h
+        src/GameDataParser.cpp
+        headers/GameDataParser.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
@@ -117,3 +125,4 @@ endif()
 # copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 copy_files(DIRECTORY images fonts COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+copy_files(FILES game_packs.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})

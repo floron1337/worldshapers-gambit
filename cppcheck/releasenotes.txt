@@ -1,0 +1,4 @@
+Release Notes for Cppcheck 2.14.2
+
+Other:
+- Add "remark comments" that can be used to generate reports with justifications for warnings

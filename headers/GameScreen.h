@@ -8,20 +8,17 @@
 #include <SFML/Graphics.hpp>
 
 #include "CardGFX.h"
+#include "GameRNG.h"
+#include "Screen.h"
 
-class GameScreen {
-    sf::Font monospace_font;
-    sf::Sprite background_sprite;
-    sf::Texture background_texture;
-
-    sf::RenderWindow &window;
+class GameScreen : public Screen{
     int last_mouse_x;
-
     CardGFX cardGFX;
+    GameRNG game_rng;
 
 public:
-    explicit GameScreen(sf::RenderWindow &window_);
-    void drawScreen();
+    explicit GameScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_);
+    void drawScreen() override;
     void setLastMouseX(int x);
 };
 

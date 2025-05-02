@@ -1,0 +1,51 @@
+INTRO_PACK
+1
+At the end of a long power struggle, you have emerged as the sole dictator of the Planetary Order.\nYour new job is simple: keep the people in line. The state is of utmost importance.
+throne.png
+back.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+GENERAL_PACK_1
+5
+Your dictatorship has caused protests all across the planet. The people peacefully protest for democracy and free speech.\nDo you intervene or let them protest?
+protest.png
+back.png
+0 -10 5 0
+0 5 -5 0
+5 0 0 5
+1 0 0 5
+There is an ongoing debate about the religious cults' influence in state affairs.\nYour financial advisors argue that defunding the cults will lower their influence and increase our budget.\nDo you wish to cut the funding?
+church.png
+back.png
+10 -10 10 0
+0 0 -10 0
+0 0 10 5
+0 0 0 0
+As civilian unrest grows, the Force demands more funding for keeping control.\nDo you grant them more funding?
+camera.png
+back.png
+-10 -5 10 0
+0 0 -10 0
+10 0 0 0
+0 0 0 0
+Drug usage has skyrocketed in recent years. Your advisors have presented you with two options:\nLEFT: Increase funding for the Force to catch drug dealers and users.\nRIGHT: Increase funding for drug rehabilitation and education programs.
+-5 5 0 0 
+-5 2 0 0
+0 0 0 0
+0 0 0 0
+Manufacturing workers all over the Planetary Order have gone on strike, demanding better working conditions and the outlawing of child labor.\nAfter weighing your options, you can either:\nLEFT: Ignore their demands.\nRIGHT: Accept their demands.
+-5 10 0 -10
+0 -10 0 0
+0 0 0 0
+10 2 2 2
+
+GENERAL_PACK_2
+0
+
+GENERAL_PACK_3
+0
+
+EOF

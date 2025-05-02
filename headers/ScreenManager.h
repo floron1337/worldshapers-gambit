@@ -5,6 +5,7 @@
 #ifndef SCREENMANAGER_H
 #define SCREENMANAGER_H
 
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 #include "GameScreen.h"
@@ -12,22 +13,21 @@
 
 class ScreenManager {
 public:
-    enum Screen {
+    enum CurrentScreenEnum {
         Menu,
         Settings,
         Game,
     };
 private:
     sf::RenderWindow &window;
-    Screen current_screen;
-    MenuScreen menu_screen;
-    GameScreen game_screen;
+    CurrentScreenEnum current_screen_type;
+    std::unique_ptr<Screen> current_screen;
 
 public:
     explicit ScreenManager(sf::RenderWindow &window_);
-    void setScreen(Screen screen);
-    Screen getCurrentScreen() const;
-    void drawScreen();
+    void changeScreen(CurrentScreenEnum screen);
+    [[nodiscard]] CurrentScreenEnum getCurrentScreen() const;
+    void drawScreen() const;
 
     friend std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager);
 };

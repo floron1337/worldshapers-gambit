@@ -41,7 +41,9 @@ private:
         Idle,
         ChangingCard,
         Flipping,
-    } gfx_state = Idle;
+    };
+
+    GFXState gfx_state = Idle;
 
     void drawIdleCard(float mouseX);
     void drawChangingCardAnimation(SwipeDirection direction);
@@ -56,6 +58,8 @@ public:
 
     void triggerCardChange(SwipeDirection direction);
     void triggerFlip();
+
+    bool isIdle() const;
 };
 
 

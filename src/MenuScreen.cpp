@@ -4,9 +4,7 @@
 
 #include <iostream>
 
-MenuScreen::MenuScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_): window(window_){
-    screen_manager = screen_manager_;
-
+MenuScreen::MenuScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_) {
     if (!monospace_font.loadFromFile("./fonts/VeraMono.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
         return;
@@ -63,7 +61,7 @@ void MenuScreen::drawScreen() {
             window.close();
         else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (play_btn.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
-                screen_manager->setScreen(ScreenManager::Game);
+                screen_manager->changeScreen(ScreenManager::Game);
             }
             if (settings_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
             }

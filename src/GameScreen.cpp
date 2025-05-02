@@ -5,8 +5,10 @@
 #include "../headers/GameScreen.h"
 #include <iostream>
 
-GameScreen::GameScreen(sf::RenderWindow &window_): window(window_), cardGFX(window_, monospace_font, window.getSize().x / 2.0f, 225.0f) {
+GameScreen::GameScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
+    cardGFX(window_, monospace_font, window.getSize().x / 2.0f, 225.0f), game_rng("./game_packs.txt") {
     last_mouse_x = 0;
+
     if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
         std::cerr << "Failed to load monospace font" << std::endl;
         return;
@@ -74,7 +76,7 @@ void GameScreen::drawScreen() {
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
-        else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+        else if (cardGFX.isIdle() && event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (event.mouseButton.x < (windowX - windowX / 4.0f) / 2.0f)
                 cardGFX.triggerCardChange(CardGFX::Left);
             else if (event.mouseButton.x > (windowX + windowX / 4.0f) / 2.0f)

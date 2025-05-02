@@ -26,15 +26,7 @@ void Game::start() const {
 
     ScreenManager screen_manager(window);
 
-    // COD INUTIL MOMENTAN CA SA NU PLANGA CPPCHECK
-    // UTIL MAI TARZIU
-    ScreenManager::Screen current_screen = screen_manager.getCurrentScreen();
-    if (current_screen == ScreenManager::Menu) {
-        std::cout << screen_manager << std::endl;
-    }
-    // ######################
-
-    // screen_manager.setScreen(ScreenManager::Game);
+    //screen_manager.changeScreen(ScreenManager::Game);
 
     while (window.isOpen())
     {

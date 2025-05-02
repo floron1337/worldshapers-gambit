@@ -1,0 +1,18 @@
+PACK1_NAME
+!! [specials ex: final_pack, next_pack, shuffle]
+[card_count]
+[card1_text]
+[card1_front_location]
+[card1_back_location]
+[card1_yes_finance_influence] [card1_yes_popularity_influence] [card1_yes_power_influence] [card1_yes_industry_influence]
+[card1_no_finance_influence] [card1_no_popularity_influence] [card1_no_power_influence] [card1_no_industry_influence]
+[card1_yes_eclipse_influence] [card1_yes_omniterra_influence] [card1_yes_legion_influence] [card1_yes_cult_influence]
+[card1_no_eclipse_influence] [card1_no_omniterra_influence] [card1_no_legion_influence] [card1_no_cult_influence]
+
+PACK1_NAME
+!! next PACK2_NAME
+
+EOF
+
+*) influentele factiunilor sunt mereu pozitive
+
