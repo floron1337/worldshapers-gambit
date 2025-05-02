@@ -13,6 +13,9 @@ GameRNG::GameRNG(const std::string &game_data_location) {
     faction_influence["CULT"] = 0;
 
     GameDataParser::parseCardPacks(game_data_location, card_packs);
+
+    // LINIE DE COD INUTILA ADAUGATA MOMENTAN CA SA COMPILEZE
+    industry++, popularity++, power++, finances++;
 }
 
 GameRNG::GameRNG(const std::string &game_data_location, int game_seed_) : GameRNG(game_data_location) {
