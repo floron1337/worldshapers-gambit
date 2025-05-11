@@ -84,9 +84,8 @@ Card& GameRNG::getCurrentCard() {
     if (const auto pack_it = card_packs.find(current_pack_name); pack_it == card_packs.end() || pack_it->second.size() <= current_card_index) {
         throw std::out_of_range("GameRNG – current card does not exist");
     }
-    CardPack& current_pack = getCurrentPack();
 
-    return current_pack[current_card_index];
+    return getCurrentPack()[current_card_index];
 }
 
 Card& GameRNG::getNextCard() {

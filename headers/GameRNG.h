@@ -41,6 +41,7 @@ public:
     explicit GameRNG(const std::string& game_data_location);
     GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack);
     void nextCard(Constants::SwipeDirection direction);
+
     Card& getCurrentCard();
     Card& getNextCard();
     [[nodiscard]] const std::string& getCurrentPackCardBackLocation();
