@@ -25,6 +25,12 @@ GameRNG::GameRNG(const std::string &game_data_location) {
 
     current_card_index = 0;
     years_in_power = 0;
+
+    // COD INUTIL PENTRU CPPCHECK
+    getCurrentPackName();
+    getCurrentCardIndex();
+    getCardPacksMap();
+    // STOP COD INUTIL
 }
 
 GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack) : GameRNG(game_data_location) {
