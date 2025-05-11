@@ -191,14 +191,6 @@ void CardGFX::reloadCardTextures() {
     next_card_sprite.setTexture(next_card_back_texture);
 }
 
-void CardGFX::setCard(const Card &card_) {
-    current_card = card_;
-}
-
-void CardGFX::setNextCard(const Card &card_) {
-    next_card = card_;
-}
-
 bool CardGFX::isIdle() const {
     if (gfx_state == Constants::GFXState::Idle)
         return true;

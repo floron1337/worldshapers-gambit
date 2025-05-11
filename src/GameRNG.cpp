@@ -32,10 +32,12 @@ GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const st
     current_pack_name = starting_pack;
 }
 
+// cppcheck-suppress getCurrentPackName
 const std::string& GameRNG::getCurrentPackName() const {
     return current_pack_name;
 }
 
+// cppcheck-suppress getCurrentCardIndex
 int GameRNG::getCurrentCardIndex() const {
     return current_card_index;
 }
@@ -101,6 +103,7 @@ const std::string& GameRNG::getCurrentPackCardBackLocation() {
     return card_packs[current_pack_name].getPackCardBackLocation();
 }
 
+// cppcheck-suppress getCardPacksMap
 const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
     return card_packs;
 }

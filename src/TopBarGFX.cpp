@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-TopBarGFX::TopBarGFX(sf::RenderWindow &window_, GameRNG &game_rng_) : window(window_), game_rng(game_rng_) {
+TopBarGFX::TopBarGFX(sf::RenderWindow &window_, GameRNG &game_rng_) : game_rng(game_rng_), window(window_) {
     if (!finance_texture.loadFromFile("./images/finance_icon.png") ) {
         std::cerr << "Failed to load finance icon texture" << std::endl;
     }

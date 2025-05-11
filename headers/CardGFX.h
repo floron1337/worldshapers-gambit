@@ -43,8 +43,6 @@ class CardGFX {
 
 public:
     CardGFX(sf::RenderWindow &window_, GameRNG &game_rng_,  sf::Font& card_font_, float card_posX_, float card_posY_);
-    void setCard(const Card& card_);
-    void setNextCard(const Card& card_);
     void reloadCardTextures();
     void draw(float mouseX);
 

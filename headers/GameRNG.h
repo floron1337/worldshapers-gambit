@@ -40,12 +40,15 @@ class GameRNG {
 public:
     explicit GameRNG(const std::string& game_data_location);
     GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack);
+    // cppcheck-suppress getCurrentPackName
     [[nodiscard]] const std::string& getCurrentPackName() const;
+    // cppcheck-suppress getCurrentCardIndex
     [[nodiscard]] int getCurrentCardIndex() const;
     void nextCard(Constants::SwipeDirection direction);
     Card& getCurrentCard();
     Card& getNextCard();
     [[nodiscard]] const std::string& getCurrentPackCardBackLocation();
+    // cppcheck-suppress getCardPacksMap
     const std::map<std::string, CardPack>& getCardPacksMap();
     CardPack& getCurrentPack();
     [[nodiscard]] int getValue(Constants::GameRNGValues value) const;
