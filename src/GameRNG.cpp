@@ -25,7 +25,7 @@ GameRNG::GameRNG(const std::string &game_data_location) {
     years_in_power = 0;
 }
 
-GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack) : GameRNG(game_data_location) {
+GameRNG::GameRNG(const std::string& game_data_location, const int game_seed_, const std::string &starting_pack) : GameRNG(game_data_location) {
     game_seed = game_seed_;
     current_pack_name = starting_pack;
 }
@@ -54,8 +54,7 @@ void GameRNG::pickNewPack() {
 }
 
 void GameRNG::nextCard(Constants::SwipeDirection direction) {
-    CardPack& current_pack = getCurrentPack();
-    if (current_card_index == current_pack.size() - 1) {
+    if (const CardPack& current_pack = getCurrentPack(); current_card_index == current_pack.size() - 1) {
         if (current_pack.isFinalPack()) {
             throw std::runtime_error("game ended");
         }
@@ -82,8 +81,7 @@ void GameRNG::nextCard(Constants::SwipeDirection direction) {
 }
 
 Card& GameRNG::getCurrentCard() {
-    auto pack_it = card_packs.find(current_pack_name);
-    if (pack_it == card_packs.end() || pack_it->second.size() <= current_card_index) {
+    if (const auto pack_it = card_packs.find(current_pack_name); pack_it == card_packs.end() || pack_it->second.size() <= current_card_index) {
         throw std::out_of_range("GameRNG – current card does not exist");
     }
     CardPack& current_pack = getCurrentPack();
@@ -96,7 +94,7 @@ Card& GameRNG::getNextCard() {
         return card_packs["NULL_PACK"][0];
     }
 
-    auto pack_it = card_packs.find(current_pack_name);
+    const auto pack_it = card_packs.find(current_pack_name);
     if (pack_it == card_packs.end() || pack_it->second.size() <= current_card_index + 1) {
         throw std::out_of_range("GameRNG – next card does not exist");
     }

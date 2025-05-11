@@ -21,7 +21,7 @@ protected:
 public:
     explicit Screen(sf::RenderWindow *window_, ScreenManager *screen_manager_);
     virtual ~Screen() = default;
-    Screen& operator= (Screen& other);
+    Screen& operator= (const Screen& other);
     Screen(const Screen& other);
 
     virtual void drawScreen() = 0;

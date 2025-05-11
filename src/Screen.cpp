@@ -8,7 +8,7 @@ Screen::Screen(sf::RenderWindow *window_, ScreenManager *screen_manager_) : wind
 
 }
 
-Screen& Screen::operator=(Screen& other) {
+Screen& Screen::operator=(const Screen& other) {
     if (this == &other) {
         return *this;
     }
