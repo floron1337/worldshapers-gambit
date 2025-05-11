@@ -25,12 +25,6 @@ GameRNG::GameRNG(const std::string &game_data_location) {
 
     current_card_index = 0;
     years_in_power = 0;
-
-    // COD INUTIL PENTRU CPPCHECK
-    getCurrentPackName();
-    getCurrentCardIndex();
-    getCardPacksMap();
-    // STOP COD INUTIL
 }
 
 GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack) : GameRNG(game_data_location) {
@@ -38,6 +32,7 @@ GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const st
     current_pack_name = starting_pack;
 }
 
+/* TODO: FUNCTII UTILE, DA PLANGE CPPCHECK
 // cppcheck-suppress getCurrentPackName
 const std::string& GameRNG::getCurrentPackName() const {
     return current_pack_name;
@@ -48,6 +43,11 @@ int GameRNG::getCurrentCardIndex() const {
     return current_card_index;
 }
 
+// cppcheck-suppress getCardPacksMap
+const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
+    return card_packs;
+}
+*/
 void GameRNG::pickNewPack() {
     current_pack_name = "GENERAL_PACK_1";
     current_card_index = 0;
@@ -107,11 +107,6 @@ Card& GameRNG::getNextCard() {
 
 const std::string& GameRNG::getCurrentPackCardBackLocation() {
     return card_packs[current_pack_name].getPackCardBackLocation();
-}
-
-// cppcheck-suppress getCardPacksMap
-const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
-    return card_packs;
 }
 
 CardPack& GameRNG::getCurrentPack() {
