@@ -17,16 +17,14 @@ Game::Game(int max_fps_) {
 Game::~Game() = default;
 
 void Game::start() const {
-    // Get the desktop resolution
     const sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 
-    // Create a window covering the entire screen
     sf::RenderWindow window(desktop, "Worldshaper's Gambit", sf::Style::Fullscreen);
     window.setFramerateLimit(this->max_fps);
 
     ScreenManager screen_manager(window);
 
-    //screen_manager.changeScreen(ScreenManager::Game);
+    //screen_manager.changeScreen(Constants::ScreensEnum::Game);
 
     while (window.isOpen())
     {

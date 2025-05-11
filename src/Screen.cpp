@@ -4,6 +4,22 @@
 
 #include "../headers/Screen.h"
 
-Screen::Screen(sf::RenderWindow &window_, ScreenManager *screen_manager_) : window(window_){
-    screen_manager = screen_manager_;
+Screen::Screen(sf::RenderWindow *window_, ScreenManager *screen_manager_) : window(window_), screen_manager(screen_manager_){
+
+}
+
+Screen& Screen::operator=(Screen& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+    window = other.window;
+    screen_manager = other.screen_manager;
+
+    return *this;
+}
+
+Screen::Screen(const Screen& other) {
+    window = other.window;
+    screen_manager = other.screen_manager;
 }

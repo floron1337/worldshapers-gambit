@@ -78,6 +78,12 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Screen.h
         src/GameDataParser.cpp
         headers/GameDataParser.h
+        src/Constants.cpp
+        headers/Constants.h
+        src/TopBarGFX.cpp
+        headers/TopBarGFX.h
+        src/SettingsScreen.cpp
+        headers/SettingsScreen.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

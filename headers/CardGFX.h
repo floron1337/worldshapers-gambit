@@ -7,19 +7,17 @@
 
 #include <SFML/Graphics.hpp>
 #include "Card.h"
+#include "Constants.h"
+#include "GameRNG.h"
 
 class CardGFX {
-public:
-    enum SwipeDirection {
-        Left,
-        Right,
-    };
-private:
-    sf::RenderWindow &window;
-    sf::Font &card_font;
+    GameRNG &game_rng;
 
     Card current_card;
     Card next_card;
+
+    sf::RenderWindow &window;
+    sf::Font &card_font;
 
     sf::Texture card_front_texture;
     sf::Sprite card_front_sprite;
@@ -31,32 +29,26 @@ private:
     float card_posX = 0;
     float card_posY = 0;
 
-    SwipeDirection swipe_direction = Left;
+    Constants::SwipeDirection swipe_direction = Constants::Left;
     float swipe_posX = 0;
 
     float flip_progress = 1.0f;
     bool showing_back_side = true;
 
-    enum GFXState {
-        Idle,
-        ChangingCard,
-        Flipping,
-    };
-
-    GFXState gfx_state = Idle;
+    Constants::GFXState gfx_state = Constants::Idle;
 
     void drawIdleCard(float mouseX);
-    void drawChangingCardAnimation(SwipeDirection direction);
+    void drawChangingCardAnimation(Constants::SwipeDirection direction);
     void drawFlipAnimation();
 
 public:
-    CardGFX(sf::RenderWindow &window_, sf::Font& card_font_, float card_posX_, float card_posY_);
+    CardGFX(sf::RenderWindow &window_, GameRNG &game_rng_,  sf::Font& card_font_, float card_posX_, float card_posY_);
     void setCard(const Card& card_);
     void setNextCard(const Card& card_);
     void reloadCardTextures();
     void draw(float mouseX);
 
-    void triggerCardChange(SwipeDirection direction);
+    void triggerCardChange(Constants::SwipeDirection direction);
     void triggerFlip();
 
     bool isIdle() const;

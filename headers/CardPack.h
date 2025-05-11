@@ -10,14 +10,18 @@
 
 class CardPack {
     std::string pack_name;
+    std::string pack_cards_back_location = "back.png";
     std::string next_pack_name;
 
     std::vector<Card> cards;
-    bool shuffle_cards = false;
     bool final_pack = false;
 public:
     CardPack() = default;
-    CardPack(const std::string &pack_name_, const std::vector<Card> &cards_, bool shuffle_cards_, bool final_pack_, const std::string &next_pack_name_);
+    CardPack(const std::string &pack_name_, const std::string &pack_cards_back_location_, const std::vector<Card> &cards_, bool final_pack_, const std::string &next_pack_name_);
+    Card& operator[](int index);
+    [[nodiscard]] int size() const noexcept;
+    const std::string& getPackCardBackLocation();
+    bool isFinalPack() const;
 };
 
 

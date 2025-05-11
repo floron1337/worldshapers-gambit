@@ -5,8 +5,11 @@
 #include "../headers/GameScreen.h"
 #include <iostream>
 
-GameScreen::GameScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
-    cardGFX(window_, monospace_font, window.getSize().x / 2.0f, 225.0f), game_rng("./game_packs.txt") {
+#include "../headers/ScreenManager.h"
+#include "../headers/Screen.h"
+
+GameScreen::GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
+                                                                                   game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng) {
     last_mouse_x = 0;
 
     if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
@@ -19,7 +22,6 @@ GameScreen::GameScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_
         return;
     }
     background_sprite.setTexture(background_texture);
-    cardGFX.reloadCardTextures();
 }
 
 void GameScreen::setLastMouseX(int x) {
@@ -27,14 +29,14 @@ void GameScreen::setLastMouseX(int x) {
 }
 
 void GameScreen::drawScreen() {
-    int windowX = window.getSize().x;
-    int windowY = window.getSize().y;
+    int windowX = window->getSize().x;
+    int windowY = window->getSize().y;
 
     background_sprite.setScale(
         float(windowX) / background_texture.getSize().x,
         float(windowY) / background_texture.getSize().y
     );
-    window.draw(background_sprite);
+    window->draw(background_sprite);
 
     sf::RectangleShape bg_rect = sf::RectangleShape(sf::Vector2f(windowX / 2.5f, windowY - 100));
     bg_rect.setFillColor(sf::Color::Black); // Set button background color
@@ -42,7 +44,7 @@ void GameScreen::drawScreen() {
     bg_rect.setOutlineColor(sf::Color::White);  // Sets the border color
     bg_rect.setOrigin(bg_rect.getSize() / 2.0f);
     bg_rect.setPosition(windowX / 2.0f, windowY / 2.0f - 15);
-    window.draw(bg_rect);
+    window->draw(bg_rect);
 
     sf::RectangleShape top_rect = sf::RectangleShape(sf::Vector2f(windowX / 2.5f, 100));
     top_rect.setFillColor(sf::Color::Black); // Set button background color
@@ -50,7 +52,7 @@ void GameScreen::drawScreen() {
     top_rect.setOutlineColor(sf::Color::White);  // Sets the border color
     top_rect.setOrigin(top_rect.getSize() / 2.0f);
     top_rect.setPosition(windowX / 2.0f, 85);
-    window.draw(top_rect);
+    window->draw(top_rect);
 
     sf::RectangleShape bottom_rect = sf::RectangleShape(sf::Vector2f(windowX / 2.5f, 50));
     bottom_rect.setFillColor(sf::Color::Black); // Set button background color
@@ -58,7 +60,7 @@ void GameScreen::drawScreen() {
     bottom_rect.setOutlineColor(sf::Color::White);  // Sets the border color
     bottom_rect.setOrigin(bottom_rect.getSize() / 2.0f);
     bottom_rect.setPosition(windowX / 2.0f, windowY - 85);
-    window.draw(bottom_rect);
+    window->draw(bottom_rect);
 
     sf::Text bottom_text("YOU ARE RESPONSIBLE FOR THIS. YOU MUST DECIDE.", monospace_font, 24); // a font is required to make a text object
     bottom_text.setFillColor(sf::Color::White);
@@ -68,29 +70,49 @@ void GameScreen::drawScreen() {
         bottom_text_bounds.top + bottom_text_bounds.height / 2.0f
     );
     bottom_text.setPosition(windowX / 2.0f, windowY - 85); // Move the text to the center of the window
-    window.draw(bottom_text);
+    window->draw(bottom_text);
+
+    std::string years_in_power_str = std::to_string(game_rng.getYearsInPower()) + " " + (game_rng.getYearsInPower() == 1 ? "year" : "years") + " in power";
+    sf::Text years_in_power_text(years_in_power_str, monospace_font, 44);
+    years_in_power_text.setFillColor(sf::Color::White);
+    sf::FloatRect years_in_power_text_bounds = years_in_power_text.getLocalBounds();
+    years_in_power_text.setOrigin(
+        years_in_power_text_bounds.left + years_in_power_text_bounds.width / 2.0f,
+        years_in_power_text_bounds.top + years_in_power_text_bounds.height / 2.0f
+    );
+    years_in_power_text.setPosition(250, windowY - 85);
+    window->draw(years_in_power_text);
 
     int mouseX = -1;
 
     sf::Event event{};
-    while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
-            window.close();
-        else if (cardGFX.isIdle() && event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+    while (window->pollEvent(event)) {
+        if (cardGFX.isIdle() && event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (event.mouseButton.x < (windowX - windowX / 4.0f) / 2.0f)
-                cardGFX.triggerCardChange(CardGFX::Left);
+                cardGFX.triggerCardChange(Constants::SwipeDirection::Left);
             else if (event.mouseButton.x > (windowX + windowX / 4.0f) / 2.0f)
-                cardGFX.triggerCardChange(CardGFX::Right);
+                cardGFX.triggerCardChange(Constants::SwipeDirection::Right);
         }
         else if (event.type == sf::Event::MouseMoved) {
             mouseX = event.mouseMove.x;
+        }
+        else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+            auto current_pack = game_rng.getCurrentPack();
+            std::cout << current_pack.isFinalPack() << std::endl;
+            std::cout << current_pack.getPackCardBackLocation() << std::endl;
+        }
+        else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+            screen_manager->changeScreen(Constants::ScreensEnum::Menu);
+            return;
         }
     }
 
     if (mouseX == -1)
         mouseX = last_mouse_x;
 
+
     cardGFX.draw(mouseX);
+    topBarGFX.draw(mouseX);
 
     setLastMouseX(mouseX);
 }

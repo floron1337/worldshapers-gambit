@@ -4,6 +4,7 @@
 
 #include "../headers/GameDataParser.h"
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -13,21 +14,32 @@ void GameDataParser::readLineValues(std::size_t n, std::ifstream& fin, std::vect
     for (std::size_t i = 0; i < n; i++) {
         fin >> output_dest[i];
     }
+    fin.get();
 }
 
 void GameDataParser::parseCardPacks(const std::string &game_data_location, std::map<std::string, CardPack> &out_card_map) {
     std::ifstream fin(game_data_location);
     if (!fin.is_open()) {
-        std::cerr << "Failed to open Game Data File\n";
-        return;
+        throw std::runtime_error("GameDataParser - Failed to open Game Data File\n");
     }
 
     while (fin)
     {
         std::string pack_name;
+        std::string pack_back_location;
         std::size_t card_cnt;
 
         fin >> pack_name;
+        fin.get();
+        std::getline(fin, pack_back_location);
+
+        bool final_pack = false;
+
+        if (pack_back_location == "! final") {
+            final_pack = true;
+            std::getline(fin, pack_back_location);
+        }
+
         fin >> card_cnt;
         fin.get();
 
@@ -36,11 +48,16 @@ void GameDataParser::parseCardPacks(const std::string &game_data_location, std::
         for (std::size_t i = 0; i < card_cnt; i++) {
             std::string card_text;
             std::string card_front_location;
-            std::string card_back_location;
 
+            // functie ajutatoare sa imi citeasca \n cum trebuie
             std::getline(fin, card_text);
+            size_t pos = 0;
+            while ((pos = card_text.find("\\n", pos)) != std::string::npos) {
+                card_text.replace(pos, 2, "\n");
+                pos += 1;
+            }
+
             std::getline(fin, card_front_location);
-            std::getline(fin, card_back_location);
 
             std::vector<int> card_left_change;
             std::vector<int> card_left_faction_change;
@@ -52,11 +69,11 @@ void GameDataParser::parseCardPacks(const std::string &game_data_location, std::
             readLineValues(4, fin, card_right_change);
             readLineValues(4, fin, card_right_faction_change);
 
-            Card card(card_left_change, card_left_faction_change, card_right_change, card_right_faction_change, card_text, card_front_location, card_back_location);
+            Card card(card_left_change, card_left_faction_change, card_right_change, card_right_faction_change, card_text, card_front_location);
             cards.push_back(card);
         }
 
-        CardPack card_pack(pack_name, cards, false, false, "");
+        CardPack card_pack(pack_name, pack_back_location, cards, final_pack, "");
         out_card_map[pack_name] = card_pack;
     }
 }

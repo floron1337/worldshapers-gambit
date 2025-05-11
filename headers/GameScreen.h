@@ -10,14 +10,17 @@
 #include "CardGFX.h"
 #include "GameRNG.h"
 #include "Screen.h"
+#include "TopBarGFX.h"
 
-class GameScreen : public Screen{
+class GameScreen : public Screen {
     int last_mouse_x;
-    CardGFX cardGFX;
     GameRNG game_rng;
+    CardGFX cardGFX;
+    TopBarGFX topBarGFX;
 
 public:
-    explicit GameScreen(sf::RenderWindow &window_, ScreenManager *screen_manager_);
+    explicit GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_);
+
     void drawScreen() override;
     void setLastMouseX(int x);
 };

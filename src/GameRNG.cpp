@@ -4,21 +4,126 @@
 
 #include "../headers/GameRNG.h"
 
+#include <iostream>
+
 #include "../headers/GameDataParser.h"
 
 GameRNG::GameRNG(const std::string &game_data_location) {
+    current_pack_name = "INTRO_PACK";
+
     faction_influence["ECLIPSE"] = 0;
     faction_influence["OMNITERRA"] = 0;
     faction_influence["LEGION"] = 0;
     faction_influence["CULT"] = 0;
 
+    std::vector<Card> null_card;
+    std::vector<int> null_change(4, 0);
+    null_card.emplace_back(null_change, null_change, null_change, null_change, "", "back.png" );
+    CardPack null_pack("NULL_PACK", "back.png", null_card, false, "");
+    card_packs["NULL_PACK"] = null_pack;
     GameDataParser::parseCardPacks(game_data_location, card_packs);
 
-    // LINIE DE COD INUTILA ADAUGATA MOMENTAN CA SA COMPILEZE
-    industry++, popularity++, power++, finances++;
+    current_card_index = 0;
+    years_in_power = 0;
 }
 
-GameRNG::GameRNG(const std::string &game_data_location, int game_seed_) : GameRNG(game_data_location) {
+GameRNG::GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack) : GameRNG(game_data_location) {
     game_seed = game_seed_;
+    current_pack_name = starting_pack;
 }
 
+const std::string& GameRNG::getCurrentPackName() const {
+    return current_pack_name;
+}
+
+int GameRNG::getCurrentCardIndex() const {
+    return current_card_index;
+}
+
+void GameRNG::pickNewPack() {
+    current_pack_name = "GENERAL_PACK_1";
+    current_card_index = 0;
+    years_in_power++;
+    //throw std::runtime_error("picking new pack");
+}
+
+void GameRNG::nextCard(Constants::SwipeDirection direction) {
+    CardPack& current_pack = getCurrentPack();
+    if (current_card_index == current_pack.size() - 1) {
+        if (current_pack.isFinalPack()) {
+            throw std::runtime_error("game ended");
+        }
+        else {
+            pickNewPack();
+            return;
+        }
+    }
+
+    Card& current_card = getCurrentCard();
+    std::vector<int> &change = direction == Constants::SwipeDirection::Left ? current_card.getLeftChange() : current_card.getRightChange();
+    std::vector<int> &change_factions = direction == Constants::SwipeDirection::Left ? current_card.getLeftFactionChange() : current_card.getRightFactionChange();
+    industry += change[0];
+    popularity += change[1];
+    power += change[2];
+    finances += change[3];
+
+    faction_influence["ECLIPSE"] += change_factions[0];
+    faction_influence["OMNITERRA"] += change_factions[1];
+    faction_influence["LEGION"] += change_factions[2];
+    faction_influence["CULT"] += change_factions[3];
+
+    current_card_index++;
+}
+
+Card& GameRNG::getCurrentCard() {
+    auto pack_it = card_packs.find(current_pack_name);
+    if (pack_it == card_packs.end() || pack_it->second.size() <= current_card_index) {
+        throw std::out_of_range("GameRNG – current card does not exist");
+    }
+    CardPack& current_pack = getCurrentPack();
+
+    return current_pack[current_card_index];
+}
+
+Card& GameRNG::getNextCard() {
+    if (current_card_index == getCurrentPack().size() - 1) {
+        return card_packs["NULL_PACK"][0];
+    }
+
+    auto pack_it = card_packs.find(current_pack_name);
+    if (pack_it == card_packs.end() || pack_it->second.size() <= current_card_index + 1) {
+        throw std::out_of_range("GameRNG – next card does not exist");
+    }
+    return pack_it->second[current_card_index + 1];
+}
+
+const std::string& GameRNG::getCurrentPackCardBackLocation() {
+    return card_packs[current_pack_name].getPackCardBackLocation();
+}
+
+const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
+    return card_packs;
+}
+
+CardPack& GameRNG::getCurrentPack() {
+    return card_packs[current_pack_name];
+}
+
+int GameRNG::getValue(Constants::GameRNGValues value) const {
+    switch (value) {
+        case Constants::GameRNGValues::Industry:
+            return industry;
+        case Constants::GameRNGValues::Popularity:
+            return popularity;
+        case Constants::GameRNGValues::Power:
+            return power;
+        case Constants::GameRNGValues::Finances:
+            return finances;
+        default:
+            return 0;
+    }
+}
+
+int GameRNG::getYearsInPower(){
+    return years_in_power;
+}

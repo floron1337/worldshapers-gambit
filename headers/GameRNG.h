@@ -7,10 +7,12 @@
 
 #include <vector>
 #include <map>
+#include <memory>
 #include <string>
 #include <random>
 
 #include "CardPack.h"
+#include "Constants.h"
 
 class GameRNG {
     int finances = 50, popularity = 50, power = 50, industry = 50;
@@ -28,9 +30,26 @@ class GameRNG {
     std::map<std::string, int> faction_influence;
     int game_seed = 0;
 
+    std::string current_pack_name = "INTRO_PACK";
+    std::string next_pack_name = "GENERAL_PACK_1";
+    int current_card_index = 0;
+    int years_in_power = 0;
+
+    void pickNewPack();
+
 public:
     explicit GameRNG(const std::string& game_data_location);
-    GameRNG(const std::string& game_data_location, int game_seed_);
+    GameRNG(const std::string& game_data_location, int game_seed_, const std::string &starting_pack);
+    [[nodiscard]] const std::string& getCurrentPackName() const;
+    [[nodiscard]] int getCurrentCardIndex() const;
+    void nextCard(Constants::SwipeDirection direction);
+    Card& getCurrentCard();
+    Card& getNextCard();
+    [[nodiscard]] const std::string& getCurrentPackCardBackLocation();
+    const std::map<std::string, CardPack>& getCardPacksMap();
+    CardPack& getCurrentPack();
+    [[nodiscard]] int getValue(Constants::GameRNGValues value) const;
+    int getYearsInPower();
 };
 
 

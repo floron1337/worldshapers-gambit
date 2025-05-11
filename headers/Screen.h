@@ -6,6 +6,7 @@
 #define SCREEN_H
 
 #include <SFML/Graphics.hpp>
+
 class ScreenManager;
 
 class Screen {
@@ -15,11 +16,14 @@ protected:
     sf::Sprite background_sprite;
     sf::Texture background_texture;
 
-    sf::RenderWindow &window;
+    sf::RenderWindow *window;
     ScreenManager *screen_manager;
 public:
-    explicit Screen(sf::RenderWindow &window_, ScreenManager *screen_manager_);
+    explicit Screen(sf::RenderWindow *window_, ScreenManager *screen_manager_);
     virtual ~Screen() = default;
+    Screen& operator= (Screen& other);
+    Screen(const Screen& other);
+
     virtual void drawScreen() = 0;
 };
 

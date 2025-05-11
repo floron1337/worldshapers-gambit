@@ -9,15 +9,18 @@
 #include "../headers/CardGFX.h"
 
 CardGFX::CardGFX(sf::RenderWindow &window_,
+                 GameRNG &game_rng_,
                  sf::Font& card_font_,
                  float card_posX_,
                  float card_posY_)
-    : window(window_),            // matches order in class
-      card_font(card_font_)      // matches order in class
+    : game_rng(game_rng_), window(window_), // matches order in class
+      card_font(card_font_) // matches order in class
 {
     card_posX = card_posX_;
     card_posY = card_posY_;
-    gfx_state = Idle;
+    gfx_state = Constants::Idle;
+
+    reloadCardTextures();
 }
 
 void CardGFX::drawFlipAnimation() {
@@ -28,16 +31,11 @@ void CardGFX::drawFlipAnimation() {
     if (flip_progress <= -1.0f) {
         flip_progress = 1.0f;
         showing_back_side = false;
-        gfx_state = Idle;
+        gfx_state = Constants::Idle;
 
         // TODO: in punctul asta ar trebui sa fie apelat generatorul de carduri
-        // momentan ciclam intre 2 carti k idee
-        Card aux = next_card;
-        setNextCard(current_card);
-        setCard(aux);
+        game_rng.nextCard(Constants::Left);
         reloadCardTextures();
-
-        std::cout << "CARD CHANGE TRIGGERED" << std::endl << current_card << std::endl;;
 
         return;
     }
@@ -52,13 +50,13 @@ void CardGFX::drawFlipAnimation() {
     next_card_sprite.setTexture(showing_back_side ? next_card_back_texture : next_card_front_texture);
     next_card_sprite.setScale(visualScaleX, 0.65f);
     next_card_sprite.setOrigin(next_card_sprite.getLocalBounds().width / 2.f, next_card_sprite.getLocalBounds().height / 2.f);
-    next_card_sprite.setPosition(windowX / 2.0f, windowY / 2.0f);
+    next_card_sprite.setPosition(windowX / 2.0f, card_posY);
     window.draw(next_card_sprite);
 
     flip_progress -= 0.05f;
 }
 
-void CardGFX::drawChangingCardAnimation(SwipeDirection direction) {
+void CardGFX::drawChangingCardAnimation(Constants::SwipeDirection direction) {
     int windowX = window.getSize().x;
     int windowY = window.getSize().y;
 
@@ -74,20 +72,20 @@ void CardGFX::drawChangingCardAnimation(SwipeDirection direction) {
         card_text_bounds.left + card_text_bounds.width / 2.0f,
         card_text_bounds.top + card_text_bounds.height / 2.0f
     );
-    card_text.setPosition(card_posX, card_posY);
+    card_text.setPosition(card_posX, card_posY - windowY / 2.75f);
     window.draw(card_text);
 
     next_card_sprite.setScale(0.65f, 0.65f);
     sf::FloatRect next_card_bounds = next_card_sprite.getLocalBounds();
     next_card_sprite.setOrigin(next_card_bounds.width / 2.f, next_card_bounds.height / 2.f);
-    next_card_sprite.setPosition(card_posX, windowY / 2.0f);
+    next_card_sprite.setPosition(card_posX, card_posY);
     window.draw(next_card_sprite);
 
     int diffX = swipe_posX - (windowX / 2);
 
     float offsetX = swipe_posX - diffX * 0.6f;
 
-    int newY = windowY / 2.0f  + std::abs(swipe_posX - windowX / 2) / 3;
+    int newY = card_posY + std::abs(swipe_posX - windowX / 2) / 3;
     float rotationAngle = diffX * 0.02f;
 
     card_front_sprite.setScale(0.65f, 0.65f);
@@ -97,7 +95,7 @@ void CardGFX::drawChangingCardAnimation(SwipeDirection direction) {
     card_front_sprite.setRotation(rotationAngle);
     window.draw(card_front_sprite);
 
-    if (direction == Left) {
+    if (direction == Constants::SwipeDirection::Left) {
         swipe_posX -= windowX / 25.0f;
     }
     else {
@@ -105,18 +103,17 @@ void CardGFX::drawChangingCardAnimation(SwipeDirection direction) {
     }
 }
 
-void CardGFX::triggerCardChange(SwipeDirection direction) {
+void CardGFX::triggerCardChange(Constants::SwipeDirection direction) {
     swipe_direction = direction;
     swipe_posX = card_posX;
-    gfx_state = ChangingCard;
+    gfx_state = Constants::GFXState::ChangingCard;
 }
 
 void CardGFX::triggerFlip() {
     flip_progress = 1.0f;
     showing_back_side = true;
-    gfx_state = Flipping;
+    gfx_state = Constants::GFXState::Flipping;
 }
-
 
 void CardGFX::drawIdleCard(float mouseX) {
     int windowX = window.getSize().x;
@@ -129,13 +126,13 @@ void CardGFX::drawIdleCard(float mouseX) {
         card_text_bounds.left + card_text_bounds.width / 2.0f,
         card_text_bounds.top + card_text_bounds.height / 2.0f
     );
-    card_text.setPosition(card_posX, card_posY);
+    card_text.setPosition(card_posX, card_posY - windowY / 2.75f);
     window.draw(card_text);
 
     next_card_sprite.setScale(0.65f, 0.65f);
     sf::FloatRect next_card_bounds = next_card_sprite.getLocalBounds();
     next_card_sprite.setOrigin(next_card_bounds.width / 2.f, next_card_bounds.height / 2.f);
-    next_card_sprite.setPosition(card_posX, windowY / 2.0f);
+    next_card_sprite.setPosition(card_posX, card_posY);
     window.draw(next_card_sprite);
 
 
@@ -148,7 +145,7 @@ void CardGFX::drawIdleCard(float mouseX) {
     if (offsetX < minX) offsetX = minX;
     if (offsetX > maxX) offsetX = maxX;
 
-    int newY = windowY / 2.0f  + std::abs(mouseX - windowX / 2) / 8;
+    int newY = card_posY + std::abs(mouseX - windowX / 2) / 8;
     float rotationAngle = diffX * 0.02f;
 
     card_front_sprite.setScale(0.65f, 0.65f);
@@ -161,13 +158,13 @@ void CardGFX::drawIdleCard(float mouseX) {
 
 void CardGFX::draw(float mouseX) {
     switch (gfx_state) {
-        case Idle:
+        case Constants::GFXState::Idle:
             drawIdleCard(mouseX);
             break;
-        case ChangingCard:
+        case Constants::GFXState::ChangingCard:
             drawChangingCardAnimation(swipe_direction);
             break;
-        case Flipping:
+        case Constants::GFXState::Flipping:
             drawFlipAnimation();
             break;
         default:
@@ -176,13 +173,18 @@ void CardGFX::draw(float mouseX) {
 }
 
 void CardGFX::reloadCardTextures() {
-    if (!card_front_texture.loadFromFile(current_card.getFrontLocation())) {
+    current_card = game_rng.getCurrentCard();
+    next_card = game_rng.getNextCard();
+
+    std::string cards_location = "./images/cards/";
+
+    if (!card_front_texture.loadFromFile(cards_location + current_card.getFrontLocation())) {
         std::cerr << "Failed to load texture!" << std::endl;
     }
-    if (!next_card_front_texture.loadFromFile(next_card.getFrontLocation())) {
+    if (!next_card_front_texture.loadFromFile(cards_location + next_card.getFrontLocation())) {
         std::cerr << "Failed to load texture!" << std::endl;
     }
-    if (!next_card_back_texture.loadFromFile(next_card.getBackLocation())) {
+    if (!next_card_back_texture.loadFromFile(cards_location + game_rng.getCurrentPackCardBackLocation())) {
         std::cerr << "Failed to load texture!" << std::endl;
     }
 
@@ -199,7 +201,7 @@ void CardGFX::setNextCard(const Card &card_) {
 }
 
 bool CardGFX::isIdle() const {
-    if (gfx_state == Idle)
+    if (gfx_state == Constants::GFXState::Idle)
         return true;
 
     return false;

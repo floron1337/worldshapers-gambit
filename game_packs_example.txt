@@ -1,5 +1,5 @@
 PACK1_NAME
-!! [specials ex: final_pack, next_pack, shuffle]
+! [specials ex: final_pack, next_pack, shuffle]
 [card_count]
 [card1_text]
 [card1_front_location]
