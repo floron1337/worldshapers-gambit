@@ -30,7 +30,7 @@ class TopBarGFX {
 
 public:
     explicit TopBarGFX(sf::RenderWindow &window_, GameRNG &game_rng_);
-    void drawTopBarElement(sf::Texture &texture, sf::Sprite &sprite, sf::Sprite &sprite_back, float x_pos, float scale, int value, int card_change);
+    void drawTopBarElement(const sf::Texture &texture, sf::Sprite &sprite, sf::Sprite &sprite_back, float x_pos, float scale, int value, int card_change) const;
     void draw(int mouseX);
 };
 

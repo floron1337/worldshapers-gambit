@@ -9,8 +9,6 @@
 #include "../headers/GameDataParser.h"
 
 GameRNG::GameRNG(const std::string &game_data_location) {
-    current_pack_name = "INTRO_PACK";
-
     faction_influence["ECLIPSE"] = 0;
     faction_influence["OMNITERRA"] = 0;
     faction_influence["LEGION"] = 0;

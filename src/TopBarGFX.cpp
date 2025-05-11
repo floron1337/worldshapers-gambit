@@ -37,9 +37,9 @@ TopBarGFX::TopBarGFX(sf::RenderWindow &window_, GameRNG &game_rng_) : game_rng(g
     }
 }
 
-void TopBarGFX::drawTopBarElement(sf::Texture &texture, sf::Sprite &sprite, sf::Sprite &sprite_back, float x_pos, float scale, int value, int card_change) {
+void TopBarGFX::drawTopBarElement(const sf::Texture &texture, sf::Sprite &sprite, sf::Sprite &sprite_back, const float x_pos, const float scale, const int value, const int card_change) const {
     sprite_back.setScale(scale, scale);
-    sf::FloatRect bounds_back = sprite_back.getLocalBounds();
+    const sf::FloatRect bounds_back = sprite_back.getLocalBounds();
     sprite_back.setOrigin(bounds_back.width / 2.f,  bounds_back.height);
     sprite_back.setPosition(x_pos, 45.0f);
     sf::Color color = sprite_back.getColor();
@@ -75,9 +75,9 @@ void TopBarGFX::drawTopBarElement(sf::Texture &texture, sf::Sprite &sprite, sf::
 
 
 void TopBarGFX::draw(int mouseX) {
-    int windowX = window.getSize().x;
+    const int windowX = window.getSize().x;
     Card& current_card = game_rng.getCurrentCard();
-    std::vector<int> &current_card_change = (mouseX < windowX / 2.0f) ? current_card.getLeftChange() : current_card.getRightChange();
+    const std::vector<int> &current_card_change = (mouseX < windowX / 2.0f) ? current_card.getLeftChange() : current_card.getRightChange();
 
     drawTopBarElement(finance_texture, finance_sprite, finance_sprite_back, windowX / 2 - 225, 0.4f, game_rng.getValue(Constants::GameRNGValues::Finances), current_card_change[0]);
     drawTopBarElement(popularity_texture, popularity_sprite, popularity_sprite_back, windowX / 2 - 75, 0.4f, game_rng.getValue(Constants::GameRNGValues::Popularity), current_card_change[1]);
