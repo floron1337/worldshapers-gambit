@@ -5,7 +5,7 @@
 #ifndef TOPBARGFX_H
 #define TOPBARGFX_H
 #include "GameRNG.h"
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 
 class TopBarGFX {
