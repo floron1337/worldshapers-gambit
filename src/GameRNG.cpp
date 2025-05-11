@@ -19,7 +19,7 @@ GameRNG::GameRNG(const std::string &game_data_location) {
     std::vector<Card> null_card;
     std::vector<int> null_change(4, 0);
     null_card.emplace_back(null_change, null_change, null_change, null_change, "", "back.png" );
-    CardPack null_pack("NULL_PACK", "back.png", null_card, false, "");
+    const CardPack null_pack("NULL_PACK", "back.png", null_card, false, "");
     card_packs["NULL_PACK"] = null_pack;
     GameDataParser::parseCardPacks(game_data_location, card_packs);
 
@@ -60,8 +60,8 @@ void GameRNG::nextCard(Constants::SwipeDirection direction) {
     }
 
     Card& current_card = getCurrentCard();
-    std::vector<int> &change = direction == Constants::SwipeDirection::Left ? current_card.getLeftChange() : current_card.getRightChange();
-    std::vector<int> &change_factions = direction == Constants::SwipeDirection::Left ? current_card.getLeftFactionChange() : current_card.getRightFactionChange();
+    const std::vector<int> &change = direction == Constants::SwipeDirection::Left ? current_card.getLeftChange() : current_card.getRightChange();
+    const std::vector<int> &change_factions = direction == Constants::SwipeDirection::Left ? current_card.getLeftFactionChange() : current_card.getRightFactionChange();
     industry += change[0];
     popularity += change[1];
     power += change[2];
@@ -124,6 +124,6 @@ int GameRNG::getValue(Constants::GameRNGValues value) const {
     }
 }
 
-int GameRNG::getYearsInPower(){
+int GameRNG::getYearsInPower() const {
     return years_in_power;
 }

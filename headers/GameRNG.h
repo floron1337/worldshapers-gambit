@@ -49,7 +49,7 @@ public:
     const std::map<std::string, CardPack>& getCardPacksMap();
     CardPack& getCurrentPack();
     [[nodiscard]] int getValue(Constants::GameRNGValues value) const;
-    int getYearsInPower();
+    int getYearsInPower() const;
 };
 
 

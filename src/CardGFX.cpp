@@ -41,7 +41,6 @@ void CardGFX::drawFlipAnimation() {
     }
 
     int windowX = window.getSize().x;
-    int windowY = window.getSize().y;
 
     float visualScaleX = std::abs(flip_progress);
     visualScaleX = std::clamp(visualScaleX, 0.0f, 1.0f);
