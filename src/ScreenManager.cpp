@@ -75,6 +75,8 @@ std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) 
         case Constants::ScreensEnum::Game:
             os << "Game";
             break;
+        case Constants::ScreensEnum::Ending:
+            os << "Ending";
     }
 
     os << std::endl;

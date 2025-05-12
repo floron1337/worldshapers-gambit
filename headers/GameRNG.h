@@ -33,7 +33,7 @@ class GameRNG {
     std::map<std::string, int> faction_influence;
     int game_seed = 0;
 
-    std::string current_pack_name = "FINAL_ECLIPSE_PACK";
+    std::string current_pack_name = "INTRO_PACK";
     std::string next_pack_name = "GENERAL_PACK_1";
     int current_card_index = 0;
     int years_in_power = 0;

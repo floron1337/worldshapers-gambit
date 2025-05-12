@@ -4,8 +4,6 @@
 
 #include "../headers/GameRNG.h"
 #include "../headers/GameScreen.h"
-#include <iostream>
-
 #include "../headers/GameDataParser.h"
 
 GameRNG::GameRNG(const std::string &game_data_location){

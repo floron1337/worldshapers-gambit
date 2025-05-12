@@ -61,8 +61,62 @@ back.png
 FINAL_ECLIPSE_PACK
 !
 eclipse_back.png
-1
+10
 Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER AS FALLEN.\n\nLONG LIVE THE ECLIPSE.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+They find you curled in the ruins\nof your palace, deep in your gilded bunker.\nThe air smells of sweat, fear,\nand the acrid stench of burning data drives.\nYour fingers still clutch\nthe Scepter of Office\nits weight now meaningless.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+The door explodes inward.\nRed-eyed Eclipse militants\ntrain their rifles on you.\n\n'ON YOUR KNEES,' one snarls.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+You hesitate, just for a second\nbefore the butt of a rifle smashes into your spine.\nYou collapse.\nThe scepter clatters to the floor.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+They drag you through the streets.\nThe crowd screams.\nRocks, rotten food, and spit rain down on you.\nA masked Eclipse judge reads the charges:
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+Crimes against humanity.\nEconomic tyranny.\nThe theft of a promised future.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+They throw you into a lightless concrete box.\nNo bed. No window.\nJust a bucket and a single flickering bulb.\nSomewhere, a speaker plays the crowds\noutside chanting for your death.\n
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+Dawn arrives.\nThey march you to the same square\nwhere you once gave speeches.\nA billion eyes watch.\nA noose waits. Or a firing squad. Or a guillotine.\nThe method doesn't matter.\nThe outcome is the same.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+Goodbye, you sorry excuse of a human.
+protest.png
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+Let there be no states\nno wars\nno suffering\n\nLet us all live as one.\n\nGLORY TO THE ECLIPSE.
 protest.png
 0 0 0 0
 0 0 0 0
