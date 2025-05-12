@@ -2,6 +2,8 @@
 // Created by floron on 4/29/25.
 //
 
+class GameScreen;
+
 #ifndef GAMERNG_H
 #define GAMERNG_H
 
@@ -13,6 +15,7 @@
 
 #include "CardPack.h"
 #include "Constants.h"
+
 
 class GameRNG {
     int finances = 50, popularity = 50, power = 50, industry = 50;
@@ -30,10 +33,12 @@ class GameRNG {
     std::map<std::string, int> faction_influence;
     int game_seed = 0;
 
-    std::string current_pack_name = "INTRO_PACK";
+    std::string current_pack_name = "FINAL_ECLIPSE_PACK";
     std::string next_pack_name = "GENERAL_PACK_1";
     int current_card_index = 0;
     int years_in_power = 0;
+
+    bool game_ended = false;
 
     void pickNewPack();
 
@@ -55,7 +60,8 @@ public:
 
     CardPack& getCurrentPack();
     [[nodiscard]] int getValue(Constants::GameRNGValues value) const;
-    int getYearsInPower() const;
+    [[nodiscard]] int getYearsInPower() const;
+    bool hasGameEnded() const;
 };
 
 

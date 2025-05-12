@@ -34,9 +34,14 @@ void GameDataParser::parseCardPacks(const std::string &game_data_location, std::
         std::getline(fin, pack_back_location);
 
         bool final_pack = false;
+        std::string next_pack_name;
 
-        if (pack_back_location == "! final") {
+        if (pack_back_location[0] == '!') {
             final_pack = true;
+            std::getline(fin, pack_back_location);
+        }
+        else if (pack_back_location[0] == '@') {
+            next_pack_name = pack_back_location.substr(1);
             std::getline(fin, pack_back_location);
         }
 
@@ -73,7 +78,7 @@ void GameDataParser::parseCardPacks(const std::string &game_data_location, std::
             cards.push_back(card);
         }
 
-        CardPack card_pack(pack_name, pack_back_location, cards, final_pack, "");
+        CardPack card_pack(pack_name, pack_back_location, cards, final_pack, next_pack_name);
         out_card_map[pack_name] = card_pack;
     }
 }

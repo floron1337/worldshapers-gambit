@@ -10,6 +10,7 @@
 #include "Constants.h"
 #include "GameRNG.h"
 
+class GameRNG;
 class CardGFX {
     GameRNG &game_rng;
 

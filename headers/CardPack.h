@@ -21,7 +21,8 @@ public:
     Card& operator[](int index);
     [[nodiscard]] int size() const noexcept;
     const std::string& getPackCardBackLocation();
-    bool isFinalPack() const;
+    [[nodiscard]] bool isFinalPack() const;
+    [[nodiscard]] const std::string& getNextPackName() const;
 };
 
 

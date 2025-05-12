@@ -38,3 +38,7 @@ int CardPack::size() const noexcept {
 bool CardPack::isFinalPack() const {
     return final_pack;
 }
+
+const std::string& CardPack::getNextPackName() const{
+    return next_pack_name;
+}

@@ -84,6 +84,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/TopBarGFX.h
         src/SettingsScreen.cpp
         headers/SettingsScreen.h
+        src/EndingScreen.cpp
+        headers/EndingScreen.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

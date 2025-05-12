@@ -115,4 +115,14 @@ void GameScreen::drawScreen() {
     topBarGFX.draw(mouseX);
 
     setLastMouseX(mouseX);
+
+    if (game_rng.hasGameEnded()) {
+        endGame();
+    }
 }
+
+void GameScreen::endGame() const {
+    screen_manager->setEndingType(Constants::EndingType::Eclipse);
+    screen_manager->changeScreen(Constants::ScreensEnum::Ending);
+}
+

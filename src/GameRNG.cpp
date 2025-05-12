@@ -3,12 +3,12 @@
 //
 
 #include "../headers/GameRNG.h"
-
+#include "../headers/GameScreen.h"
 #include <iostream>
 
 #include "../headers/GameDataParser.h"
 
-GameRNG::GameRNG(const std::string &game_data_location) {
+GameRNG::GameRNG(const std::string &game_data_location){
     faction_influence["ECLIPSE"] = 0;
     faction_influence["OMNITERRA"] = 0;
     faction_influence["LEGION"] = 0;
@@ -47,16 +47,20 @@ const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
 }
 */
 void GameRNG::pickNewPack() {
-    current_pack_name = "GENERAL_PACK_1";
+    std::string next_pack = getCurrentPack().getNextPackName();
+    current_pack_name = !next_pack.empty() ? next_pack : "GENERAL_PACK_1";
+
     current_card_index = 0;
     years_in_power++;
-    //throw std::runtime_error("picking new pack");
 }
 
 void GameRNG::nextCard(Constants::SwipeDirection direction) {
     if (const CardPack& current_pack = getCurrentPack(); current_card_index == current_pack.size() - 1) {
         if (current_pack.isFinalPack()) {
-            throw std::runtime_error("game ended");
+            if (current_pack_name == "FINAL_ECLIPSE_PACK") {
+                game_ended = true;
+                return;
+            }
         }
         else {
             pickNewPack();
@@ -125,4 +129,8 @@ int GameRNG::getValue(Constants::GameRNGValues value) const {
 
 int GameRNG::getYearsInPower() const {
     return years_in_power;
+}
+
+bool GameRNG::hasGameEnded() const {
+    return game_ended;
 }

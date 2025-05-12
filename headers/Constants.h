@@ -15,6 +15,7 @@ public:
         Menu,
         Settings,
         Game,
+        Ending,
     };
 
     enum GFXState {
@@ -33,6 +34,17 @@ public:
         Popularity,
         Power,
         Industry,
+    };
+
+    enum EndingType {
+        None,
+        OldAge,
+        Resignation,
+        Assasination,
+        Eclipse,
+        Omniterra,
+        Legion,
+        Cult,
     };
 };
 

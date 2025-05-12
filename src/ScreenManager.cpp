@@ -2,12 +2,12 @@
 // Created by floron on 4/9/25.
 //
 
+#include "../headers/Constants.h"
 #include "../headers/ScreenManager.h"
 #include "../headers/GameScreen.h"
 #include "../headers/SettingsScreen.h"
+#include "../headers/EndingScreen.h"
 #include <iostream>
-
-#include "../headers/Constants.h"
 
 ScreenManager::ScreenManager(sf::RenderWindow &window_): window(window_) {
     current_screen_type = Constants::ScreensEnum::Menu;
@@ -34,6 +34,13 @@ void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
         case Constants::ScreensEnum::Game:
         {
             std::unique_ptr<Screen> new_screen(new GameScreen(&window, this));
+            current_screen.reset();
+            current_screen = std::move(new_screen);
+            break;
+        }
+        case Constants::ScreensEnum::Ending:
+        {
+            std::unique_ptr<Screen> new_screen(new EndingScreen(&window, this));
             current_screen.reset();
             current_screen = std::move(new_screen);
             break;
@@ -74,3 +81,12 @@ std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) 
 
     return os;
 }
+
+Constants::EndingType ScreenManager::getEndingType() const {
+    return ending_type;
+}
+
+void ScreenManager::setEndingType(Constants::EndingType ending_type_) {
+    ending_type = ending_type_;
+}
+

@@ -8,7 +8,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "CardGFX.h"
-#include "GameRNG.h"
 #include "Screen.h"
 #include "TopBarGFX.h"
 
@@ -23,6 +22,7 @@ public:
 
     void drawScreen() override;
     void setLastMouseX(int x);
+    void endGame() const;
 };
 
 
