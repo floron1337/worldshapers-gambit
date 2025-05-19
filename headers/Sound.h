@@ -6,9 +6,7 @@
 #define SOUND_H
 #include <string>
 
-#include "SFML/Audio/Music.hpp"
-#include "SFML/Audio/Sound.hpp"
-#include "SFML/Audio/SoundBuffer.hpp"
+#include <SFML/Audio.hpp>
 
 
 class Sound {
@@ -22,7 +20,7 @@ public:
 class Music : public Sound {
     sf::Music music;
 public:
-    Music(const std::string& sound_name_);
+    explicit Music(const std::string& sound_name_);
     void play() override;
 };
 
