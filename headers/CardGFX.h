@@ -9,16 +9,19 @@
 #include "Card.h"
 #include "Constants.h"
 #include "GameRNG.h"
+#include "SoundManager.h"
 
 class GameRNG;
 class CardGFX {
     GameRNG &game_rng;
+    sf::RenderWindow &window;
+
+    SoundManager* sound_manager;
+
+    sf::Font &card_font;
 
     Card current_card;
     Card next_card;
-
-    sf::RenderWindow &window;
-    sf::Font &card_font;
 
     sf::Texture card_front_texture;
     sf::Sprite card_front_sprite;
@@ -43,7 +46,7 @@ class CardGFX {
     void drawFlipAnimation();
 
 public:
-    CardGFX(sf::RenderWindow &window_, GameRNG &game_rng_,  sf::Font& card_font_, float card_posX_, float card_posY_);
+    CardGFX(sf::RenderWindow &window, GameRNG &game_rng_, SoundManager* sound_manager_, sf::Font& card_font_, float card_posX_, float card_posY_);
     void reloadCardTextures();
     void draw(float mouseX);
 

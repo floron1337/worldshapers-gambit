@@ -86,6 +86,12 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/SettingsScreen.h
         src/EndingScreen.cpp
         headers/EndingScreen.h
+        src/Exception.cpp
+        headers/Exception.h
+        src/SoundManager.cpp
+        headers/SoundManager.h
+        src/Sound.cpp
+        headers/Sound.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
@@ -102,7 +108,7 @@ target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE generated/incl
 # target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ${SFML_SOURCE_DIR}/include)
 target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${SFML_BINARY_DIR}/lib)
-target_link_libraries(${MAIN_EXECUTABLE_NAME} PRIVATE sfml-graphics sfml-window sfml-system Threads::Threads)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PRIVATE sfml-audio sfml-graphics sfml-window sfml-system Threads::Threads)
 
 if(APPLE)
 elseif(UNIX)
@@ -132,5 +138,5 @@ endif()
 
 # copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
-copy_files(DIRECTORY images fonts COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+copy_files(DIRECTORY images sounds fonts COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 copy_files(FILES game_packs.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})

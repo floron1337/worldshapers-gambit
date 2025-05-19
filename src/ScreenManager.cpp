@@ -9,7 +9,9 @@
 #include "../headers/EndingScreen.h"
 #include <iostream>
 
-ScreenManager::ScreenManager(sf::RenderWindow &window_): window(window_) {
+#include "../headers/Exception.h"
+
+ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_manager_): window(window_), sound_manager(sound_manager_) {
     current_screen_type = Constants::ScreensEnum::Menu;
     this->changeScreen(Constants::ScreensEnum::Menu);
     window.setMouseCursorVisible(true);
@@ -47,8 +49,7 @@ void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
         }
         default:
         {
-            std::cout << "Tried to change to an invalid Screen";
-            break;
+            throw InvalidScreenId(screen);
         }
     }
 }
@@ -90,5 +91,9 @@ Constants::EndingType ScreenManager::getEndingType() const {
 
 void ScreenManager::setEndingType(Constants::EndingType ending_type_) {
     ending_type = ending_type_;
+}
+
+SoundManager* ScreenManager::getSoundManager() const {
+    return sound_manager;
 }
 

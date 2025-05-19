@@ -6,8 +6,7 @@
 #define ENUMS_H
 #include <string>
 
-class Constants {
-public:
+namespace Constants {
     static constexpr int GAME_FPS = 60;
     const inline static std::string GAME_DATA_PACKS_LOCATION = "./game_packs.txt";
 

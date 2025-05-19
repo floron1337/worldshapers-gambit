@@ -3,6 +3,8 @@
 //
 
 #include "../headers/GameRNG.h"
+
+#include "../headers/Exception.h"
 #include "../headers/GameScreen.h"
 #include "../headers/GameDataParser.h"
 
@@ -46,6 +48,11 @@ const std::map<std::string, CardPack>& GameRNG::getCardPacksMap() {
 */
 void GameRNG::pickNewPack() {
     std::string next_pack = getCurrentPack().getNextPackName();
+
+    if (!next_pack.empty() && !card_packs.contains(next_pack)) {
+        throw InvalidCardPack(next_pack);
+    }
+
     current_pack_name = !next_pack.empty() ? next_pack : "GENERAL_PACK_1";
 
     current_card_index = 0;
@@ -84,7 +91,7 @@ void GameRNG::nextCard(Constants::SwipeDirection direction) {
 
 Card& GameRNG::getCurrentCard() {
     if (const auto pack_it = card_packs.find(current_pack_name); pack_it == card_packs.end() || pack_it->second.size() <= current_card_index) {
-        throw std::out_of_range("GameRNG – current card does not exist");
+        throw CardOutOfBounds(current_pack_name, current_card_index);
     }
 
     return getCurrentPack()[current_card_index];
@@ -97,7 +104,7 @@ Card& GameRNG::getNextCard() {
 
     const auto pack_it = card_packs.find(current_pack_name);
     if (pack_it == card_packs.end() || pack_it->second.size() <= current_card_index + 1) {
-        throw std::out_of_range("GameRNG – next card does not exist");
+        throw CardOutOfBounds(current_pack_name, current_card_index + 1);
     }
     return pack_it->second[current_card_index + 1];
 }

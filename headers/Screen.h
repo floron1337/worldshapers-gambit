@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "SoundManager.h"
+
 class ScreenManager;
 
 class Screen {

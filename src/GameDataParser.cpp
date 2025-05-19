@@ -9,6 +9,8 @@
 #include <iostream>
 #include <map>
 
+#include "../headers/Exception.h"
+
 void GameDataParser::readLineValues(std::size_t n, std::ifstream& fin, std::vector<int> &output_dest) {
     output_dest.resize(n);
     for (std::size_t i = 0; i < n; i++) {
@@ -20,7 +22,7 @@ void GameDataParser::readLineValues(std::size_t n, std::ifstream& fin, std::vect
 void GameDataParser::parseCardPacks(const std::string &game_data_location, std::map<std::string, CardPack> &out_card_map) {
     std::ifstream fin(game_data_location);
     if (!fin.is_open()) {
-        throw std::runtime_error("GameDataParser - Failed to open Game Data File\n");
+        throw MissingGameData();
     }
 
     while (fin)

@@ -6,6 +6,8 @@
 
 #include <iostream>
 
+#include "../headers/Exception.h"
+
 CardPack::CardPack(const std::string &pack_name_,
                    const std::string &pack_cards_back_location_,
                    const std::vector<Card> &cards_,
@@ -21,7 +23,7 @@ CardPack::CardPack(const std::string &pack_name_,
 
 Card& CardPack::operator[](int index) {
     if (index < 0 || index >= static_cast<int>(cards.size())) {
-        throw std::out_of_range("CardPack::operator[] – invalid card index");
+        throw CardOutOfBounds(pack_name, index);
     }
 
     return cards[index];

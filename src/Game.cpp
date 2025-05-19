@@ -6,6 +6,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "../headers/SoundManager.h"
+
 Game::Game() {
     this->max_fps = 60;
 }
@@ -22,7 +24,9 @@ void Game::start() const {
     sf::RenderWindow window(desktop, "Worldshaper's Gambit", sf::Style::Fullscreen);
     window.setFramerateLimit(this->max_fps);
 
-    ScreenManager screen_manager(window);
+    SoundManager sound_manager;
+    ScreenManager screen_manager(window, &sound_manager);
+
 
     //screen_manager.changeScreen(Constants::ScreensEnum::Game);
 

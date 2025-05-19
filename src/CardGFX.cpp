@@ -8,12 +8,15 @@
 
 #include "../headers/CardGFX.h"
 
+#include "../headers/Exception.h"
+
 CardGFX::CardGFX(sf::RenderWindow &window_,
                  GameRNG &game_rng_,
+                 SoundManager *sound_manager_,
                  sf::Font& card_font_,
                  float card_posX_,
                  float card_posY_)
-    : game_rng(game_rng_), window(window_), // matches order in class
+    : game_rng(game_rng_), window(window_), sound_manager(sound_manager_),
       card_font(card_font_) // matches order in class
 {
     card_posX = card_posX_;
@@ -106,12 +109,14 @@ void CardGFX::triggerCardChange(Constants::SwipeDirection direction) {
     swipe_direction = direction;
     swipe_posX = card_posX;
     gfx_state = Constants::GFXState::ChangingCard;
+    sound_manager->playNextCardSound();
 }
 
 void CardGFX::triggerFlip() {
     flip_progress = 1.0f;
     showing_back_side = true;
     gfx_state = Constants::GFXState::Flipping;
+    sound_manager->playReverseCardSound();
 }
 
 void CardGFX::drawIdleCard(float mouseX) {
@@ -167,7 +172,7 @@ void CardGFX::draw(float mouseX) {
             drawFlipAnimation();
             break;
         default:
-            std::cerr << "Invalid state" << std::endl;
+            throw InvalidCardGFXState(gfx_state);
     }
 }
 
@@ -178,13 +183,13 @@ void CardGFX::reloadCardTextures() {
     std::string cards_location = "./images/cards/";
 
     if (!card_front_texture.loadFromFile(cards_location + current_card.getFrontLocation())) {
-        std::cerr << "Failed to load texture!" << std::endl;
+        throw TextureNotFound(cards_location + current_card.getFrontLocation());
     }
     if (!next_card_front_texture.loadFromFile(cards_location + next_card.getFrontLocation())) {
-        std::cerr << "Failed to load texture!" << std::endl;
+        throw TextureNotFound(cards_location + next_card.getFrontLocation());
     }
     if (!next_card_back_texture.loadFromFile(cards_location + game_rng.getCurrentPackCardBackLocation())) {
-        std::cerr << "Failed to load texture!" << std::endl;
+        throw TextureNotFound(cards_location + game_rng.getCurrentPackCardBackLocation());
     }
 
     card_front_sprite.setTexture(card_front_texture);

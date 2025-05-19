@@ -62,7 +62,7 @@ FINAL_ECLIPSE_PACK
 !
 eclipse_back.png
 10
-Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER AS FALLEN.\n\nLONG LIVE THE ECLIPSE.
+Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER HAS FALLEN.\n\nLONG LIVE THE ECLIPSE.
 protest.png
 0 0 0 0
 0 0 0 0

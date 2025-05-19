@@ -61,7 +61,7 @@ public:
     CardPack& getCurrentPack();
     [[nodiscard]] int getValue(Constants::GameRNGValues value) const;
     [[nodiscard]] int getYearsInPower() const;
-    bool hasGameEnded() const;
+    [[nodiscard]] bool hasGameEnded() const;
 };
 
 

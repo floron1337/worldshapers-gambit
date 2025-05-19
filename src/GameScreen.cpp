@@ -9,7 +9,7 @@
 #include "../headers/Screen.h"
 
 GameScreen::GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
-                                                                                   game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng) {
+                                                                                   game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, screen_manager->getSoundManager(), monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng) {
     last_mouse_x = 0;
 
     if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
@@ -97,9 +97,7 @@ void GameScreen::drawScreen() {
             mouseX = event.mouseMove.x;
         }
         else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-            auto current_pack = game_rng.getCurrentPack();
-            std::cout << current_pack.isFinalPack() << std::endl;
-            std::cout << current_pack.getPackCardBackLocation() << std::endl;
+            // CAZ DE TEST
         }
         else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
             screen_manager->changeScreen(Constants::ScreensEnum::Menu);
@@ -109,7 +107,6 @@ void GameScreen::drawScreen() {
 
     if (mouseX == -1)
         mouseX = last_mouse_x;
-
 
     cardGFX.draw(mouseX);
     topBarGFX.draw(mouseX);
