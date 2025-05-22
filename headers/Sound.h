@@ -10,8 +10,8 @@
 namespace fs = std::filesystem;
 
 class Sound {
-    std::string sound_name;
     std::string sound_path;
+    std::string sound_name;
     std::string sound_extenstion;
 public:
     explicit Sound(const fs::path& sound_path_);
@@ -23,7 +23,7 @@ public:
 class Music : public Sound {
     sf::Music music;
 public:
-    explicit Music(const std::string& song_path_);
+    explicit Music(const fs::path& song_path_);
     void play() override;
     void setVolume(float volume) override;
 };
@@ -32,7 +32,7 @@ class SoundEffect : public Sound {
     sf::SoundBuffer sound_buffer;
     sf::Sound sound;
 public:
-    explicit SoundEffect(const std::string& sound_path_);
+    explicit SoundEffect(const fs::path& sound_path_);
     void play() override;
     void setVolume(float volume) override;
 };

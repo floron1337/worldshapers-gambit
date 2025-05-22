@@ -10,12 +10,10 @@
 #include "../headers/Constants.h"
 #include "../headers/Exception.h"
 
-Sound::Sound(const fs::path &sound_path_) : sound_name(sound_path_) {
-    sound_extenstion = sound_path_.extension().string();
-    sound_name = sound_path_.stem().string();
+Sound::Sound(const fs::path &sound_path_) : sound_path(sound_path_), sound_name(sound_path_.stem()), sound_extenstion(sound_path_.extension().string()){
 }
 
-Music::Music(const std::string &song_path_) : Sound(song_path_) {
+Music::Music(const fs::path &song_path_) : Sound(song_path_) {
     if (!music.openFromFile(song_path_)) {
         throw InvalidMusic(song_path_);
     }
@@ -25,9 +23,9 @@ void Music::play() {
     music.play();
 }
 
-SoundEffect::SoundEffect(const std::string &sound_name_) : Sound(sound_name_) {
-    if (!sound_buffer.loadFromFile("./sounds/effects/" + sound_name_)) {
-        throw InvalidSoundEffect(sound_name_);
+SoundEffect::SoundEffect(const fs::path &sound_path_) : Sound(sound_path_) {
+    if (!sound_buffer.loadFromFile(sound_path_)) {
+        throw InvalidSoundEffect(sound_path_);
     }
     sound = sf::Sound(sound_buffer);
 }
