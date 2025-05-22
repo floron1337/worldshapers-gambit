@@ -32,3 +32,6 @@ InvalidSoundEffect::InvalidSoundEffect(const std::string& sound_name)
 
 InvalidMusic::InvalidMusic(const std::string& music_name)
     : Exception(std::string("Invalid music: ") + music_name) {}
+
+MusicOutOfBounds::MusicOutOfBounds(const int index)
+    : Exception(std::string("Music index out of bounds at: ") + to_string_fallback(index)) {}

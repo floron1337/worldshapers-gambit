@@ -4,12 +4,8 @@
 
 #include "../headers/Constants.h"
 #include "../headers/ScreenManager.h"
-#include "../headers/GameScreen.h"
-#include "../headers/SettingsScreen.h"
-#include "../headers/EndingScreen.h"
+#include "../headers/ScreenFactory.h"
 #include <iostream>
-
-#include "../headers/Exception.h"
 
 ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_manager_): window(window_), sound_manager(sound_manager_) {
     current_screen_type = Constants::ScreensEnum::Menu;
@@ -18,40 +14,8 @@ ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_mana
 }
 
 void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
-    switch (screen) {
-        case Constants::ScreensEnum::Menu:
-        {
-            std::unique_ptr<Screen> new_screen(new MenuScreen(&window, this));
-            current_screen.reset();
-            current_screen = std::move(new_screen);
-            break;
-        }
-        case Constants::ScreensEnum::Settings:
-        {
-            std::unique_ptr<Screen> new_screen(new SettingsScreen(&window, this));
-            current_screen.reset();
-            current_screen = std::move(new_screen);
-            break;
-        }
-        case Constants::ScreensEnum::Game:
-        {
-            std::unique_ptr<Screen> new_screen(new GameScreen(&window, this));
-            current_screen.reset();
-            current_screen = std::move(new_screen);
-            break;
-        }
-        case Constants::ScreensEnum::Ending:
-        {
-            std::unique_ptr<Screen> new_screen(new EndingScreen(&window, this));
-            current_screen.reset();
-            current_screen = std::move(new_screen);
-            break;
-        }
-        default:
-        {
-            throw InvalidScreenId(screen);
-        }
-    }
+    std::unique_ptr<Screen> new_screen = ScreenFactory::createScreen(screen, window, this);
+    current_screen = std::move(new_screen);
 }
 
 Constants::ScreensEnum ScreenManager::getCurrentScreen() const {
@@ -63,7 +27,7 @@ void ScreenManager::drawScreen() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) {
-    Constants::ScreensEnum current_screen = screen_manager.getCurrentScreen();
+    const Constants::ScreensEnum current_screen = screen_manager.getCurrentScreen();
     os << "Game is currently running on the screen: ";
 
     switch (current_screen) {

@@ -9,6 +9,7 @@
 namespace Constants {
     static constexpr int GAME_FPS = 60;
     const inline static std::string GAME_DATA_PACKS_LOCATION = "./game_packs.txt";
+    const inline static std::string MUSIC_LOCATION  = "./sounds/music/";
 
     enum ScreensEnum {
         Menu,

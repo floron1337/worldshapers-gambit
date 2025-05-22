@@ -51,4 +51,9 @@ public:
     explicit InvalidMusic(const std::string& music_name);
 };
 
+class MusicOutOfBounds : public Exception {
+public:
+    explicit MusicOutOfBounds(int index);
+};
+
 #endif //EXCEPTIONS_H
