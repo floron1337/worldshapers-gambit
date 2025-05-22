@@ -15,7 +15,7 @@ Sound::Sound(const fs::path &sound_path_) : sound_path(sound_path_.string()), so
 
 Music::Music(const fs::path &song_path_) : Sound(song_path_) {
     if (!music.openFromFile(song_path_)) {
-        throw InvalidMusic(song_path_);
+        throw InvalidMusic(song_path_.string());
     }
 }
 
@@ -25,7 +25,7 @@ void Music::play() {
 
 SoundEffect::SoundEffect(const fs::path &sound_path_) : Sound(sound_path_) {
     if (!sound_buffer.loadFromFile(sound_path_)) {
-        throw InvalidSoundEffect(sound_path_);
+        throw InvalidSoundEffect(sound_path_.string());
     }
     sound = sf::Sound(sound_buffer);
 }
