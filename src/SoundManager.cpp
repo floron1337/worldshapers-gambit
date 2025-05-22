@@ -39,7 +39,7 @@ void SoundManager::loadMusic() {
     for (const auto & entry : fs::directory_iterator(Constants::MUSIC_LOCATION)) {
         auto* to_add = new Music(entry.path());
         music_list.push_back(to_add);
-        music_map[entry.path().stem()] = to_add;
+        music_map[entry.path().stem().string()] = to_add;
     }
 }
 
@@ -48,7 +48,7 @@ void SoundManager::loadMusic(const std::string& music_location) {
     for (const auto & entry : fs::directory_iterator(music_location)) {
         auto* to_add = new Music(entry.path());
         music_list.push_back(to_add);
-        music_map[entry.path().stem()] = to_add;
+        music_map[entry.path().stem().string()] = to_add;
     }
 }
 
