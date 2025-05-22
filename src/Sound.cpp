@@ -10,7 +10,7 @@
 #include "../headers/Constants.h"
 #include "../headers/Exception.h"
 
-Sound::Sound(const fs::path &sound_path_) : sound_path(sound_path_.string()), sound_name(sound_path_.stem()), sound_extenstion(sound_path_.extension().string()){
+Sound::Sound(const fs::path &sound_path_) : sound_path(sound_path_.string()), sound_name(sound_path_.stem().string()), sound_extenstion(sound_path_.extension().string()){
 }
 
 Music::Music(const fs::path &song_path_) : Sound(song_path_) {

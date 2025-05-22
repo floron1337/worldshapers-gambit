@@ -28,7 +28,9 @@ void Game::start() const {
     ScreenManager screen_manager(window, &sound_manager);
 
     sound_manager.loadMusic(Constants::MUSIC_LOCATION);
-    //sound_manager.playMusic(0);
+    int index = 0;
+    sound_manager.playMusic(index);
+    sound_manager.playMusic("background1");
     //screen_manager.changeScreen(Constants::ScreensEnum::Game);
 
     while (window.isOpen())
