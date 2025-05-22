@@ -53,7 +53,7 @@ void SoundManager::loadMusic(const std::string& music_location) {
 }
 
 void SoundManager::playMusic(const int music_index) const {
-    if (music_index >= music_list.size() || music_index < 0) {
+    if (music_index >= static_cast<int>(music_list.size()) || music_index < 0) {
         throw MusicOutOfBounds(music_index);
     }
     music_list[music_index]->play();
