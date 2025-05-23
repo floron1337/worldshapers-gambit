@@ -9,7 +9,7 @@
 #include "../headers/Exception.h"
 namespace fs = std::filesystem;
 
-SoundManager::SoundManager(sf::RenderWindow &window_, const float volume_): window(window_), next_card_sound("./sounds/effects/next_card.mp3"), reverse_card_sound("./sounds/effects/reverse_card.mp3") {
+SoundManager::SoundManager(const float volume_): next_card_sound("./sounds/effects/next_card.mp3"), reverse_card_sound("./sounds/effects/reverse_card.mp3") {
     volume = volume_;
     next_card_sound.setVolume(volume);
     reverse_card_sound.setVolume(volume);
