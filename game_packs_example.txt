@@ -1,5 +1,5 @@
 PACK1_NAME
-! [specials ex: final_pack, next_pack, shuffle]
+*)@NEXT_PACK || !
 [card_count]
 [card1_text]
 [card1_front_location]
@@ -10,9 +10,18 @@ PACK1_NAME
 [card1_no_eclipse_influence] [card1_no_omniterra_influence] [card1_no_legion_influence] [card1_no_cult_influence]
 
 PACK1_NAME
-!! next PACK2_NAME
+@PACK2_NAME
+0
+
+PACK2_NAME
+!
+0
 
 EOF
 
-*) influentele factiunilor sunt mereu pozitive
+*) @PACK_NAME = fortam urmatorul pachet dupa terminarea celui curent
+   ! = pachet final
+   este permis un singur simbol spcial pe linie
+   simbolul special poate lipsi
+**) influentele factiunilor sunt mereu pozitive
 

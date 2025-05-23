@@ -9,7 +9,7 @@
 #include "../headers/Screen.h"
 
 GameScreen::GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
-                                                                                   game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, screen_manager->getSoundManager(), monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng) {
+                                                                                   game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, screen_manager->getSoundManager(), monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng), musicMenuGFX(*window_, screen_manager->getSoundManager()) {
     last_mouse_x = 0;
 
     if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
@@ -82,6 +82,8 @@ void GameScreen::drawScreen() {
     );
     years_in_power_text.setPosition(250, windowY - 85);
     window->draw(years_in_power_text);
+
+    musicMenuGFX.drawMusicMenu();
 
     int mouseX = -1;
 

@@ -24,14 +24,12 @@ void Game::start() const {
     sf::RenderWindow window(desktop, "Worldshaper's Gambit", sf::Style::Fullscreen);
     window.setFramerateLimit(this->max_fps);
 
-    SoundManager sound_manager;
+
+    SoundManager sound_manager(window, 10.0f);
     ScreenManager screen_manager(window, &sound_manager);
 
-    sound_manager.loadMusic(Constants::MUSIC_LOCATION);
-    int index = 0;
-    sound_manager.playMusic(index);
-    sound_manager.playMusic("background1");
-    //screen_manager.changeScreen(Constants::ScreensEnum::Game);
+    screen_manager.changeScreen(Constants::ScreensEnum::Game);
+    sound_manager.playMusic(1);
 
     while (window.isOpen())
     {

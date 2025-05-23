@@ -93,7 +93,7 @@ Rămâi la conducerea planetei prin orice mijloace: diplomație, propagandă, re
 
 #### Cerințe
 - [x] separarea codului din clase în `.h` (sau `.hpp`) și `.cpp`
-- [ ] moșteniri:
+- [x] moșteniri:
   - minim o clasă de bază și **3 clase derivate** din aceeași ierarhie
   - ierarhia trebuie să fie cu bază proprie, nu derivată dintr-o clasă predefinită
   - [x] funcții virtuale (pure) apelate prin pointeri de bază din clasa care conține atributul de tip pointer de bază
@@ -114,11 +114,11 @@ Rămâi la conducerea planetei prin orice mijloace: diplomație, propagandă, re
 - [x] STL
 - [x] cât mai multe `const`
 - [x] funcții *de nivel înalt*, de eliminat cât mai mulți getters/setters/funcții low-level
-- [ ] minim 75-80% din codul propriu să fie C++
-- [ ] la sfârșit: commit separat cu adăugarea unei noi clase derivate fără a modifica restul codului, **pe lângă cele 3 derivate deja adăugate** din aceeași ierarhie
+- [x] minim 75-80% din codul propriu să fie C++
+- [x] la sfârșit: commit separat cu adăugarea unei noi clase derivate fără a modifica restul codului, **pe lângă cele 3 derivate deja adăugate** din aceeași ierarhie
   - noua derivată nu poate fi una existentă care a fost ștearsă și adăugată din nou
   - noua derivată va fi integrată în codul existent (adică va fi folosită, nu adăugată doar ca să fie)
-- [ ] tag de `git` pe commit cu **toate bifele**: de exemplu `v0.2`
+- [x] tag de `git` pe commit cu **toate bifele**: de exemplu `v0.2`
 
 ## Tema 3
 
@@ -173,5 +173,9 @@ conțin fișiere generate și nu ne ajută să le versionăm.
 
 
 ## Resurse
-
-- adăugați trimiteri către resursele externe care v-au ajutat sau pe care le-ați folosit
+### Artă și Grafică
+- [Bratu Rareș-Tiberiu](https://www.linkedin.com/in/rare%C8%99-tiberiu-bratu-86b70b339/)
+### Inspirație Gameplay și Estetică
+- [Reigns](https://store.steampowered.com/app/474750/Reigns/)
+- [1984 - George Orwell](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four)
+- [Papers, Please](https://store.steampowered.com/app/239030/Papers_Please/)

@@ -9,8 +9,11 @@
 #include <vector>
 
 #include "Sound.h"
+#include "SFML/Graphics/RenderWindow.hpp"
 
 class SoundManager {
+    Music *current_music = nullptr;
+    sf::RenderWindow &window;
     std::vector<Music*> music_list;
     std::map<std::string, Music*> music_map;
 
@@ -19,13 +22,18 @@ class SoundManager {
     float volume = 50.0f;
 
 public:
-    explicit SoundManager(float volume_ = 50);
+    explicit SoundManager(sf::RenderWindow& window_, float volume_ = 50);
+    SoundManager(const SoundManager&) = delete;
+    SoundManager& operator=(const SoundManager&) = delete;
     ~SoundManager();
+
     void playNextCardSound();
     void playReverseCardSound();
+
     void loadMusic();
     void loadMusic(const std::string& music_location);
-    void playMusic(int music_index) const;
+
+    void playMusic(int music_index);
     void playMusic(const std::string& music_name);
 };
 

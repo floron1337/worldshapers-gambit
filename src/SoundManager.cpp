@@ -9,9 +9,10 @@
 #include "../headers/Exception.h"
 namespace fs = std::filesystem;
 
-SoundManager::SoundManager(const float volume_): next_card_sound("./sounds/effects/next_card.mp3"), reverse_card_sound("./sounds/effects/reverse_card.mp3") {
+SoundManager::SoundManager(sf::RenderWindow &window_, const float volume_): window(window_), next_card_sound("./sounds/effects/next_card.mp3"), reverse_card_sound("./sounds/effects/reverse_card.mp3") {
     volume = volume_;
     next_card_sound.setVolume(volume);
+    reverse_card_sound.setVolume(volume);
 
     loadMusic();
 
@@ -25,7 +26,6 @@ SoundManager::~SoundManager() {
         delete music;
     }
 }
-
 
 void SoundManager::playNextCardSound(){
     next_card_sound.play();
@@ -52,16 +52,24 @@ void SoundManager::loadMusic(const std::string& music_location) {
     }
 }
 
-void SoundManager::playMusic(const int music_index) const {
+void SoundManager::playMusic(const int music_index) {
+    if (current_music)
+        current_music->stop();
+
     if (music_index >= static_cast<int>(music_list.size()) || music_index < 0) {
         throw MusicOutOfBounds(music_index);
     }
     music_list[music_index]->play();
+    current_music = music_list[music_index];
 }
 
 void SoundManager::playMusic(const std::string &music_name) {
+    if (current_music)
+        current_music->stop();
+
     if (!music_map.contains(music_name))
         throw InvalidMusic(music_name);
 
     music_map[music_name]->play();
+    current_music = music_map[music_name];
 }

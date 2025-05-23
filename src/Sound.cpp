@@ -23,6 +23,10 @@ void Music::play() {
     music.play();
 }
 
+void Music::stop() {
+    music.stop();
+}
+
 SoundEffect::SoundEffect(const fs::path &sound_path_) : Sound(sound_path_) {
     if (!sound_buffer.loadFromFile(sound_path_.string())) {
         throw InvalidSoundEffect(sound_path_.string());
@@ -32,6 +36,10 @@ SoundEffect::SoundEffect(const fs::path &sound_path_) : Sound(sound_path_) {
 
 void SoundEffect::play() {
     sound.play();
+}
+
+void SoundEffect::stop() {
+    sound.stop();
 }
 
 void SoundEffect::setVolume(float volume) {

@@ -94,6 +94,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         headers/Sound.h
         src/ScreenFactory.cpp
         headers/ScreenFactory.h
+        src/MusicMenuGFX.cpp
+        headers/MusicMenuGFX.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

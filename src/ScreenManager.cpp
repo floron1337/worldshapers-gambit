@@ -5,6 +5,7 @@
 #include "../headers/Constants.h"
 #include "../headers/ScreenManager.h"
 #include "../headers/ScreenFactory.h"
+#include "../headers/GameScreen.h"
 #include <iostream>
 
 ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_manager_): window(window_), sound_manager(sound_manager_) {
@@ -15,6 +16,11 @@ ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_mana
 
 void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
     std::unique_ptr<Screen> new_screen = ScreenFactory::createScreen(screen, window, this);
+
+    if (auto* game_screen = dynamic_cast<GameScreen*>(new_screen.get())) {
+        game_screen->setLastMouseX(sf::Mouse::getPosition(window).x);
+    }
+
     current_screen = std::move(new_screen);
 }
 

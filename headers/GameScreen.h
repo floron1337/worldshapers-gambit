@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "CardGFX.h"
+#include "MusicMenuGFX.h"
 #include "Screen.h"
 #include "TopBarGFX.h"
 
@@ -16,6 +17,7 @@ class GameScreen : public Screen {
     GameRNG game_rng;
     CardGFX cardGFX;
     TopBarGFX topBarGFX;
+    MusicMenuGFX musicMenuGFX;
 
 public:
     explicit GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_);
