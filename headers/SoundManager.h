@@ -5,11 +5,9 @@
 #ifndef SOUNDMANAGER_H
 #define SOUNDMANAGER_H
 #include <map>
-#include <memory>
 #include <vector>
 
 #include "Sound.h"
-#include "SFML/Graphics/RenderWindow.hpp"
 
 class SoundManager {
     Music *current_music = nullptr;
