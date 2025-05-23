@@ -13,6 +13,10 @@ MusicMenuGFX::MusicMenuGFX(sf::RenderWindow &window_, SoundManager *sound_manage
     music_button_sprite.setTexture(music_button_texture);
 }
 
+void MusicMenuGFX::drawMenu() {
+    sound_manager->playMusic(0);
+}
+
 void MusicMenuGFX::drawMusicMenu() {
     if (menu_open) {
         drawMenu();
@@ -28,8 +32,4 @@ void MusicMenuGFX::drawButton() {
     music_button_sprite.setOrigin(bounds.width / 2.f,  bounds.height);
     music_button_sprite.setPosition(window.getSize().x - 60.0f, 75.0f);
     window.draw(music_button_sprite);
-}
-
-void MusicMenuGFX::drawMenu() {
-
 }
