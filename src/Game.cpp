@@ -25,10 +25,10 @@ void Game::start() const {
     window.setFramerateLimit(this->max_fps);
 
 
-    SoundManager sound_manager(10.0f);
-    ScreenManager screen_manager(window, &sound_manager);
+    SoundManager sound_manager(50.0f);
+    ScreenManager screen_manager(window, sound_manager);
 
-    screen_manager.changeScreen(Constants::ScreensEnum::Game);
+    //screen_manager.changeScreen(Constants::ScreensEnum::Game);
     sound_manager.playMusic(1);
 
     while (window.isOpen())

@@ -18,10 +18,10 @@ class ScreenManager {
     Constants::ScreensEnum current_screen_type;
     std::unique_ptr<Screen> current_screen;
     Constants::EndingType ending_type = Constants::EndingType::None;
-    SoundManager *sound_manager;
+    SoundManager &sound_manager;
 
 public:
-    explicit ScreenManager(sf::RenderWindow &window_, SoundManager *sound_manager_);
+    explicit ScreenManager(sf::RenderWindow &window_, SoundManager &sound_manager_);
     void changeScreen(Constants::ScreensEnum screen);
     [[nodiscard]] Constants::ScreensEnum getCurrentScreen() const;
     void drawScreen() const;

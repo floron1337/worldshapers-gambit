@@ -3,10 +3,8 @@
 //
 
 #include "../headers/CardPack.h"
-
-#include <iostream>
-
 #include "../headers/Exception.h"
+#include <iostream>
 
 CardPack::CardPack(const std::string &pack_name_,
                    const std::string &pack_cards_back_location_,

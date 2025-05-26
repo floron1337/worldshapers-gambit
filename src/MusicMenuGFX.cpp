@@ -3,7 +3,6 @@
 //
 
 #include "../headers/MusicMenuGFX.h"
-
 #include "../headers/Exception.h"
 
 MusicMenuGFX::MusicMenuGFX(sf::RenderWindow &window_, SoundManager *sound_manager_) : window(window_), sound_manager(sound_manager_) {

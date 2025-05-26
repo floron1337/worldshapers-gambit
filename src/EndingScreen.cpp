@@ -5,13 +5,9 @@
 #include "../headers/EndingScreen.h"
 #include "../headers/ScreenManager.h"
 #include "../headers/Button.h"
+#include "../headers/Constants.h"
 
 #include <iostream>
-
-#include "../headers/Constants.h"
-#include "../headers/Constants.h"
-#include "../headers/Constants.h"
-#include "../headers/Constants.h"
 
 EndingScreen::EndingScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_) {
     ending_type = screen_manager_->getEndingType();

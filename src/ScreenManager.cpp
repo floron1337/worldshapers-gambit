@@ -8,10 +8,17 @@
 #include "../headers/GameScreen.h"
 #include <iostream>
 
-ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager* sound_manager_): window(window_), sound_manager(sound_manager_) {
+ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager& sound_manager_): window(window_), sound_manager(sound_manager_) {
     current_screen_type = Constants::ScreensEnum::Menu;
     this->changeScreen(Constants::ScreensEnum::Menu);
     window.setMouseCursorVisible(true);
+}
+
+std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) {
+    const Constants::ScreensEnum current_screen = screen_manager.getCurrentScreen();
+    os << "Game is currently running screen: " << Constants::SCREEN_NAMES[current_screen] << std::endl;
+
+    return os;
 }
 
 void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
@@ -22,6 +29,8 @@ void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
     }
 
     current_screen = std::move(new_screen);
+    current_screen_type = screen;
+    std::cout << *this;
 }
 
 Constants::ScreensEnum ScreenManager::getCurrentScreen() const {
@@ -30,29 +39,6 @@ Constants::ScreensEnum ScreenManager::getCurrentScreen() const {
 
 void ScreenManager::drawScreen() const {
     current_screen->drawScreen();
-}
-
-std::ostream& operator<<(std::ostream& os, const ScreenManager& screen_manager) {
-    const Constants::ScreensEnum current_screen = screen_manager.getCurrentScreen();
-    os << "Game is currently running on the screen: ";
-
-    switch (current_screen) {
-        case Constants::ScreensEnum::Menu:
-            os << "Menu";
-            break;
-        case Constants::ScreensEnum::Settings:
-            os << "Settings";
-            break;
-        case Constants::ScreensEnum::Game:
-            os << "Game";
-            break;
-        case Constants::ScreensEnum::Ending:
-            os << "Ending";
-    }
-
-    os << std::endl;
-
-    return os;
 }
 
 Constants::EndingType ScreenManager::getEndingType() const {
@@ -64,6 +50,6 @@ void ScreenManager::setEndingType(Constants::EndingType ending_type_) {
 }
 
 SoundManager* ScreenManager::getSoundManager() const {
-    return sound_manager;
+    return &sound_manager;
 }
 

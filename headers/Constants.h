@@ -5,11 +5,18 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 #include <string>
+#include <vector>
 
 namespace Constants {
     static constexpr int GAME_FPS = 60;
     const inline static std::string GAME_DATA_PACKS_LOCATION = "./game_packs.txt";
     const inline static std::string MUSIC_LOCATION  = "./sounds/music/";
+    const inline static std::vector<std::string> SCREEN_NAMES = {
+        "Menu",
+        "Settings",
+        "Game",
+        "Ending"
+    };;
 
     enum ScreensEnum {
         Menu,

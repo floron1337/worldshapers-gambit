@@ -3,13 +3,12 @@
 //
 
 #include "../headers/GameDataParser.h"
+#include "../headers/Exception.h"
 
-#include <cstring>
+#include <string>
 #include <fstream>
 #include <iostream>
 #include <map>
-
-#include "../headers/Exception.h"
 
 void GameDataParser::readLineValues(std::size_t n, std::ifstream& fin, std::vector<int> &output_dest) {
     output_dest.resize(n);
