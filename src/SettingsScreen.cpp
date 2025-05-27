@@ -74,6 +74,7 @@ void SettingsScreen::drawScreen() {
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (back_btn.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 screen_manager->changeScreen(Constants::ScreensEnum::Menu);
+                return;
             }
         }
     }
