@@ -57,17 +57,22 @@ void MenuScreen::drawScreen() {
 
     sf::Event event{};
     while (window->pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed) {
             window->close();
-        else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+            break;
+        }
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             if (play_btn.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 screen_manager->changeScreen(Constants::ScreensEnum::Game);
+                break;
             }
             if (settings_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 screen_manager->changeScreen(Constants::ScreensEnum::Settings);
+                break;
             }
-            else if (exit_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+            if (exit_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 window->close();
+                break;
             }
 
         }
