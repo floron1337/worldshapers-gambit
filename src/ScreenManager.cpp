@@ -9,6 +9,10 @@
 #include <iostream>
 
 ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager& sound_manager_): window(window_), sound_manager(sound_manager_) {
+    font_cache.add("./fonts/MonospaceBold.ttf");
+    font_cache.add("./fonts/VeraMono.ttf");
+    font_cache.add("./fonts/VeraMoBd.ttf");
+
     current_screen_type = Constants::ScreensEnum::Menu;
     this->changeScreen(Constants::ScreensEnum::Menu);
     window.setMouseCursorVisible(true);

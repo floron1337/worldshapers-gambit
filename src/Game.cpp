@@ -8,21 +8,21 @@
 
 #include "../headers/SoundManager.h"
 
-Game::Game(int max_fps_){
-    max_fps = max_fps_;
+Game::Game(unsigned max_fps_) : max_fps(max_fps_), window(sf::VideoMode::getDesktopMode(), "Worldshaper's Gambit", sf::Style::Fullscreen),
+                           sound_manager(50.0f), screen_manager(window, sound_manager) {
+    window.setFramerateLimit(max_fps);
 }
 
 Game::~Game() = default;
 
+Game* Game::getInstance() {
+    if (instance == nullptr) {
+        instance = new Game();
+    }
+    return instance;
+}
+
 void Game::start(){
-    const sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
-
-    sf::RenderWindow window(desktop, "Worldshaper's Gambit", sf::Style::Fullscreen);
-    window.setFramerateLimit(max_fps);
-
-    SoundManager sound_manager(50.0f);
-    ScreenManager screen_manager(window, sound_manager);
-
     //screen_manager.changeScreen(Constants::ScreensEnum::Game);
     sound_manager.playMusic(1);
 

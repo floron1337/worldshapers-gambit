@@ -63,6 +63,7 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     src/GameScreen.cpp
     src/MenuScreen.cpp
     headers/Button.h
+        src/Button.cpp
     src/ScreenManager.cpp
     headers/ScreenManager.h
     src/CardGFX.cpp
@@ -95,6 +96,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     headers/ScreenFactory.h
     src/MusicMenuGFX.cpp
     headers/MusicMenuGFX.h
+        src/ResourceCache.cpp
+        headers/ResourceCache.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

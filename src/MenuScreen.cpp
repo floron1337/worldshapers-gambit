@@ -5,15 +5,8 @@
 #include <iostream>
 
 MenuScreen::MenuScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_) {
-    if (!monospace_font.loadFromFile("./fonts/VeraMono.ttf")) {
-        std::cerr << "Failed to load monospace font" << std::endl;
-        return;
-    }
-
-    if (!monospace_font_bold.loadFromFile("./fonts/VeraMoBd.ttf")) {
-        std::cerr << "Failed to load monospace bold font" << std::endl;
-        return;
-    }
+    monospace_font = screen_manager->getFontCache().get("./fonts/VeraMono.ttf");
+    monospace_font_bold = screen_manager->getFontCache().get("./fonts/VeraMoBd.ttf");
 
     if (!background_texture.loadFromFile("./images/menu_background.png")) {
         std::cerr << "Failed to load background image" << std::endl;
@@ -43,15 +36,15 @@ void MenuScreen::drawScreen() {
     menu_title.setPosition(windowX / 2.0f, windowY / 2.0f - 100); // Move the text to the center of the window
     window->draw(menu_title);
 
-    Button<> play_btn("Begin", windowX / 2.0f, windowY / 2.0f + 50, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
+    Button play_btn("Begin", windowX / 2.0f, windowY / 2.0f + 50, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
     window->draw(play_btn.getShape());
     window->draw(play_btn.getText());
 
-    Button<> settings_button("Settings", windowX / 2.0f, windowY / 2.0f + 150, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
+    Button settings_button("Settings", windowX / 2.0f, windowY / 2.0f + 150, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
     window->draw(settings_button.getShape());
     window->draw(settings_button.getText());
 
-    Button<> exit_button("End it", windowX / 2.0f, windowY / 2.0f + 250, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
+    Button exit_button("End it", windowX / 2.0f, windowY / 2.0f + 250, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
     window->draw(exit_button.getShape());
     window->draw(exit_button.getText());
 

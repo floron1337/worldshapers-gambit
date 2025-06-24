@@ -2,7 +2,8 @@
 #include "headers/Game.h"
 
 int main() {
-    Game::start();
+    Game* game = Game::getInstance();
+    game->start();
 
     return 0;
 }

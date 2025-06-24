@@ -11,11 +11,7 @@
 GameScreen::GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_),
                                                                                    game_rng(Constants::GAME_DATA_PACKS_LOCATION), cardGFX(*window_,game_rng, screen_manager->getSoundManager(), monospace_font, window->getSize().x / 2.0f, window->getSize().y / 2.0f + 100), topBarGFX(*window_, game_rng), musicMenuGFX(*window_, screen_manager->getSoundManager()) {
     last_mouse_x = 0;
-
-    if (!monospace_font.loadFromFile("./fonts/MonospaceBold.ttf")) {
-        std::cerr << "Failed to load monospace font" << std::endl;
-        return;
-    }
+    monospace_font = screen_manager->getFontCache().get("./fonts/MonospaceBold.ttf");
 
     if (!background_texture.loadFromFile("./images/game_background.png")) {
         std::cerr << "Failed to load background image" << std::endl;

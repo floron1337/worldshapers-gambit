@@ -16,9 +16,9 @@ propaganda.png
 0 0 0 0
 
 GENERAL_PACK_1
-@FINAL_ECLIPSE_PACK
+@GENERAL_PACK_2
 back.png
-5
+10
 Your dictatorship has caused protests\nall across the planet.\nThe people peacefully protest\nfor democracy and free speech.\n\nDo you intervene or let them protest?
 protest.png
 0 -10 5 0
@@ -49,75 +49,114 @@ protest.png
 0 -10 0 0
 0 0 0 0
 10 2 2 2
+A group of cyberterrorists has begun targeting Planetary Order systems - stealing classified data and disrupting infrastructure. LEFT: Do nothing about it, and hope that they retreat. RIGHT: Allocate extra funding to track them down.
+virus.png
+-10 0 5 0
+0 0 -10 0
+10 0 0 0
+0 0 0 0
+Your arms factories are struggling to keep pace with demand, so the military personnel is forced to make do with whatever they can get their hands on. Do you grant them more funding?
+weapon_production.png
+-5 0 0 5
+0 -2 0 0
+0 0 0 0
+0 0 0 0
+Thousands sleep in makeshift tents under bridges, while overcrowded shelters turn away families. The population is divided: people demand immediate action, but developers warn that rapid construction could spike debt. Do you wish to build more housing?
+crane.png
+-10 5 0 0
+0 -5 0 0
+0 0 0 0
+0 0 0 0
+The ticker tapes scream red. Funds evaporate by the hour, corporate titans beg for bailouts, and your economists are split: RIGHT: Intervene now! LEFT: Let the market purge itself.
+stocks_down.png
+0 5 2 0
+-10 -5 -2 0
+0 0 0 0
+0 0 0 0
+Smog stains the sky orange, children wear respirators to school, and the rivers bubble with chemical foam. Do you wish to ban fossil fuels?
+nuclear.png
+0 -10 -5 0
+-5 0 0 -10
+0 0 0 0
+0 0 0 0
 
 GENERAL_PACK_2
+@FINAL_ECLIPSE_PACK
 back.png
-0
-
-GENERAL_PACK_3
-back.png
-0
+2
+1. The prisons are at maximum capacity. Hallways are stacked with inmates, gang wars errupt daily, and riots are leaving inmates and guards dead every other week. LEFT: Release non-violent offenders. RIGHT: Build mega-prisons.
+placeholder.png
+-5 5 0 -2
+0 -10 0 0
+0 0 0 0
+0 0 0 0
+2. Satellites confirm the lagerst oil reserve in history beneath the melting Arctic ice - enough to power us for a century. But drilling guarantees ecological genocide. Do you proceed with the drilling operations?
+placeholder.png
+5 -2 0 5
+0 0 0 -10
+0 0 0 0
+0 0 0 0
 
 FINAL_ECLIPSE_PACK
 !
 eclipse_back.png
 10
-Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER AS FALLEN.\n\nLONG LIVE THE ECLIPSE.
-protest.png
+Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER HAS FALLEN.\n\nLONG LIVE THE ECLIPSE.
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They find you curled in the ruins\nof your palace, deep in your gilded bunker.\nThe air smells of sweat, fear,\nand the acrid stench of burning data drives.\nYour fingers still clutch\nthe Scepter of Office\nits weight now meaningless.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 The door explodes inward.\nRed-eyed Eclipse militants\ntrain their rifles on you.\n\n'ON YOUR KNEES,' one snarls.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 You hesitate, just for a second\nbefore the butt of a rifle smashes into your spine.\nYou collapse.\nThe scepter clatters to the floor.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They drag you through the streets.\nThe crowd screams.\nRocks, rotten food, and spit rain down on you.\nA masked Eclipse judge reads the charges:
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Crimes against humanity.\nEconomic tyranny.\nThe theft of a promised future.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They throw you into a lightless concrete box.\nNo bed. No window.\nJust a bucket and a single flickering bulb.\nSomewhere, a speaker plays the crowds\noutside chanting for your death.\n
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Dawn arrives.\nThey march you to the same square\nwhere you once gave speeches.\nA billion eyes watch.\nA noose waits. Or a firing squad. Or a guillotine.\nThe method doesn't matter.\nThe outcome is the same.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Goodbye, you sorry excuse of a human.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Let there be no states\nno wars\nno suffering\n\nLet us all live as one.\n\nGLORY TO THE ECLIPSE.
-protest.png
+placeholder.png
 0 0 0 0
 0 0 0 0
 0 0 0 0

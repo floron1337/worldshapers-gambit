@@ -11,16 +11,8 @@
 
 EndingScreen::EndingScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_): Screen(window_, screen_manager_) {
     ending_type = screen_manager_->getEndingType();
-
-    if (!monospace_font.loadFromFile("./fonts/VeraMono.ttf")) {
-        std::cerr << "Failed to load monospace font" << std::endl;
-        return;
-    }
-
-    if (!monospace_font_bold.loadFromFile("./fonts/VeraMoBd.ttf")) {
-        std::cerr << "Failed to load monospace bold font" << std::endl;
-        return;
-    }
+    monospace_font = screen_manager->getFontCache().get("./fonts/VeraMono.ttf");
+    monospace_font_bold = screen_manager->getFontCache().get("./fonts/VeraMoBd.ttf");
 
     std::string ending_background;
     switch (screen_manager_->getEndingType()) {
