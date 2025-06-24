@@ -62,40 +62,39 @@ add_executable(${MAIN_EXECUTABLE_NAME}
     src/Game.cpp
     src/GameScreen.cpp
     src/MenuScreen.cpp
-        src/Button.cpp
-        headers/Button.h
-        src/ScreenManager.cpp
-        headers/ScreenManager.h
-        src/CardGFX.cpp
-        headers/CardGFX.h
-        src/Card.cpp
-        headers/Card.h
-        src/GameRNG.cpp
-        headers/GameRNG.h
-        src/CardPack.cpp
-        headers/CardPack.h
-        src/Screen.cpp
-        headers/Screen.h
-        src/GameDataParser.cpp
-        headers/GameDataParser.h
-        src/Constants.cpp
-        headers/Constants.h
-        src/TopBarGFX.cpp
-        headers/TopBarGFX.h
-        src/SettingsScreen.cpp
-        headers/SettingsScreen.h
-        src/EndingScreen.cpp
-        headers/EndingScreen.h
-        src/Exception.cpp
-        headers/Exception.h
-        src/SoundManager.cpp
-        headers/SoundManager.h
-        src/Sound.cpp
-        headers/Sound.h
-        src/ScreenFactory.cpp
-        headers/ScreenFactory.h
-        src/MusicMenuGFX.cpp
-        headers/MusicMenuGFX.h
+    headers/Button.h
+    src/ScreenManager.cpp
+    headers/ScreenManager.h
+    src/CardGFX.cpp
+    headers/CardGFX.h
+    src/Card.cpp
+    headers/Card.h
+    src/GameRNG.cpp
+    headers/GameRNG.h
+    src/CardPack.cpp
+    headers/CardPack.h
+    src/Screen.cpp
+    headers/Screen.h
+    src/GameDataParser.cpp
+    headers/GameDataParser.h
+    src/Constants.cpp
+    headers/Constants.h
+    src/TopBarGFX.cpp
+    headers/TopBarGFX.h
+    src/SettingsScreen.cpp
+    headers/SettingsScreen.h
+    src/EndingScreen.cpp
+    headers/EndingScreen.h
+    src/Exception.cpp
+    headers/Exception.h
+    src/SoundManager.cpp
+    headers/SoundManager.h
+    src/Sound.cpp
+    headers/Sound.h
+    src/ScreenFactory.cpp
+    headers/ScreenFactory.h
+    src/MusicMenuGFX.cpp
+    headers/MusicMenuGFX.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
