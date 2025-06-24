@@ -47,10 +47,10 @@ void CardGFX::drawFlipAnimation() {
 
     float visualScaleX = std::abs(flip_progress);
     visualScaleX = std::clamp(visualScaleX, 0.0f, 1.0f);
-    visualScaleX *= 0.65f;
+    visualScaleX *= 0.5f;
 
     next_card_sprite.setTexture(showing_back_side ? next_card_back_texture : next_card_front_texture);
-    next_card_sprite.setScale(visualScaleX, 0.65f);
+    next_card_sprite.setScale(visualScaleX, 0.5f);
     next_card_sprite.setOrigin(next_card_sprite.getLocalBounds().width / 2.f, next_card_sprite.getLocalBounds().height / 2.f);
     next_card_sprite.setPosition(windowX / 2.0f, card_posY);
     window.draw(next_card_sprite);
@@ -67,7 +67,7 @@ void CardGFX::drawChangingCardAnimation(Constants::SwipeDirection direction) {
         return;
     }
 
-    sf::Text card_text(current_card.getText(), card_font, 24);
+    sf::Text card_text(current_card.getText(), card_font, 18);
     card_text.setFillColor(sf::Color::White);
     sf::FloatRect card_text_bounds = card_text.getLocalBounds();
     card_text.setOrigin(
@@ -77,7 +77,7 @@ void CardGFX::drawChangingCardAnimation(Constants::SwipeDirection direction) {
     card_text.setPosition(card_posX, card_posY - windowY / 2.75f);
     window.draw(card_text);
 
-    next_card_sprite.setScale(0.65f, 0.65f);
+    next_card_sprite.setScale(0.5f, 0.5f);
     sf::FloatRect next_card_bounds = next_card_sprite.getLocalBounds();
     next_card_sprite.setOrigin(next_card_bounds.width / 2.f, next_card_bounds.height / 2.f);
     next_card_sprite.setPosition(card_posX, card_posY);
@@ -90,7 +90,7 @@ void CardGFX::drawChangingCardAnimation(Constants::SwipeDirection direction) {
     int newY = card_posY + std::abs(swipe_posX - windowX / 2) / 3;
     float rotationAngle = diffX * 0.02f;
 
-    card_front_sprite.setScale(0.65f, 0.65f);
+    card_front_sprite.setScale(0.5f, 0.5f);
     sf::FloatRect card_front_bounds = card_front_sprite.getLocalBounds();
     card_front_sprite.setOrigin(card_front_bounds.width / 2.f, card_front_bounds.height / 2.f);
     card_front_sprite.setPosition(offsetX, newY);
@@ -123,7 +123,7 @@ void CardGFX::drawIdleCard(float mouseX) {
     int windowX = window.getSize().x;
     int windowY = window.getSize().y;
 
-    sf::Text card_text(current_card.getText(), card_font, 24);
+    sf::Text card_text(current_card.getText(), card_font, 18);
     card_text.setFillColor(sf::Color::White);
     sf::FloatRect card_text_bounds = card_text.getLocalBounds();
     card_text.setOrigin(
@@ -133,7 +133,7 @@ void CardGFX::drawIdleCard(float mouseX) {
     card_text.setPosition(card_posX, card_posY - windowY / 2.75f);
     window.draw(card_text);
 
-    next_card_sprite.setScale(0.65f, 0.65f);
+    next_card_sprite.setScale(0.5f, 0.5f);
     sf::FloatRect next_card_bounds = next_card_sprite.getLocalBounds();
     next_card_sprite.setOrigin(next_card_bounds.width / 2.f, next_card_bounds.height / 2.f);
     next_card_sprite.setPosition(card_posX, card_posY);
@@ -152,7 +152,7 @@ void CardGFX::drawIdleCard(float mouseX) {
     int newY = card_posY + std::abs(mouseX - windowX / 2) / 8;
     float rotationAngle = diffX * 0.02f;
 
-    card_front_sprite.setScale(0.65f, 0.65f);
+    card_front_sprite.setScale(0.5f, 0.5f);
     sf::FloatRect card_front_bounds = card_front_sprite.getLocalBounds();
     card_front_sprite.setOrigin(card_front_bounds.width / 2.f, card_front_bounds.height / 2.f);
     card_front_sprite.setPosition(offsetX, newY);
