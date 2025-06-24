@@ -21,6 +21,11 @@ public:
     explicit TextureNotFound(const std::string& texture_location);
 };
 
+class AssetNotFound : public Exception {
+public:
+    explicit AssetNotFound(const std::string& asset_location);
+};
+
 class InvalidScreenId : public Exception {
 public:
     explicit InvalidScreenId(int screen_id);

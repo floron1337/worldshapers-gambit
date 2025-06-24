@@ -15,6 +15,9 @@ CardOutOfBounds::CardOutOfBounds(const std::string& pack, const int card_index)
 TextureNotFound::TextureNotFound(const std::string& texture_location)
     : Exception(std::string("Texture not found at: ") + texture_location) {}
 
+AssetNotFound::AssetNotFound(const std::string& asset_location)
+    : Exception(std::string("Asset not found at: ") + asset_location) {}
+
 InvalidScreenId::InvalidScreenId(const int screen_id)
     : Exception(std::string("Invalid screen id: ") + to_string_fallback(screen_id)) {}
 

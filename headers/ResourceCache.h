@@ -8,6 +8,8 @@
 #include <memory>
 #include <map>
 
+#include "Exception.h"
+
 template<typename T>
 class ResourceCache {
    std::map<std::string, std::unique_ptr<T>> resources;
@@ -19,7 +21,7 @@ public:
       }
       auto resource = std::make_unique<T>();
       if (!resource->loadFromFile(filename)) {
-         throw std::runtime_error("Failed to load resource: " + filename);
+         throw AssetNotFound(filename);
       }
       T& ref = *resource;
       resources[filename] = std::move(resource);
@@ -29,7 +31,7 @@ public:
    T& get(const std::string& filename) {
       auto it = resources.find(filename);
       if (it == resources.end()) {
-         throw std::runtime_error("Resource not found: " + filename);
+         throw AssetNotFound(filename);
       }
       return *(it->second);
    }

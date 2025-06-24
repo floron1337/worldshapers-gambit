@@ -120,7 +120,7 @@ lab.png
 0 5 0 0
 0 0 0 0
 0 0 0 0
-A century-year-old dam is structurally falling, threatening both the population and economy. Do you want to patch it? 
+A century-year-old dam is structurally falling, threatening both the population and economy. Do you want to patch it?
 crane.png
 -10 5 0 0
 0 -10 0 0
