@@ -83,67 +83,19 @@ nuclear.png
 GENERAL_PACK_2
 @FINAL_ECLIPSE_PACK
 back.png
-10
-The prisons are at maximum capacity. Hallways are stacked with inmates, gang wars errupt daily, and riots are leaving inmates and guards dead every other week. LEFT: Release non-violent offenders. RIGHT: Build mega-prisons.
-prisoner.png
+2
+1. The prisons are at maximum capacity. Hallways are stacked with inmates, gang wars errupt daily, and riots are leaving inmates and guards dead every other week. LEFT: Release non-violent offenders. RIGHT: Build mega-prisons.
+placeholder.png
 -5 5 0 -2
 0 -10 0 0
 0 0 0 0
 0 0 0 0
-Satellites confirm the lagerst oil reserve in history beneath the melting Arctic ice - enough to power us for a century. But drilling guarantees ecological genocide. Do you proceed with the drilling operations?
-oil_drill.png
+2. Satellites confirm the lagerst oil reserve in history beneath the melting Arctic ice - enough to power us for a century. But drilling guarantees ecological genocide. Do you proceed with the drilling operations?
+placeholder.png
 5 -2 0 5
 0 0 0 -10
 0 0 0 0
 0 0 0 0
-Our Neural Wellbeing Index has plummeted to historic lows. Suicides and riots threaten to unravel society. One of your advisors tells you that the best idea would be to lace the drinking water with antidepressants. Do you want to do it?
-pills.png
--10 5 0 0
-0 -2 0 0
-0 0 0 0
-0 0 0 0
-The Order's pension system is a pyramid scheme on the verge of collapse. Your advisors give you 2 options to solve the crisis: LEFT: Raise the taxes for the young. RIGHT: Raise retirement to age 75.
-moneybag.png
-0 -10 -2 0
--5 -5 -2 0
-0 0 0 0
-0 0 0 0
-A decade-long megadrought has turned rivers to dust and reservoirs into cracked wastelands. You can either: LEFT: Give more water to farmers for their crops. RIGHT: Give more water to cities, where 70% of the population lives.
-drought.png
-5 -10 0 5
--10 5 0 0
-0 0 0 0
-0 0 0 0
-Emergency rooms are overrun with untrained temps, pharmacies have no one to fill prescriptions, and morgue trucks idle outside. Do you want to replace doctors with military medics?
-lab.png
-5 -5 -5 0
-0 5 0 0
-0 0 0 0
-0 0 0 0
-A century-year-old dam is structurally falling, threatening both the population and economy. Do you want to patch it?
-crane.png
--10 5 0 0
-0 -10 0 0
-0 0 0 0
-0 0 0 0
-Your economic decisions spark mass protests. All of your security forces are overwhelmed. The military stages a coup, blaming you for the chaos.
-riot.png
-0 -10 -10 0
-0 -10 -10 0
-10 0 0 0
-10 0 0 0
-The gunshots ring in your ears. Your own trusted lieutenant led the coup - the bullet would have found your heart if not for the servant who took the bullet instead. With your palace in flames, you seek refuge into a bunker.
-pistol.png
-0 -10 -10 0
-0 -10 -10 0
-10 0 0 0
-10 0 0 0
-The Eclipse marches onward. Your destiny is set in stone, your throne is just a sinking pyre. Resistance is futile - now, you must endure the fall.
-eclipse_back.png
-0 -10 -10 0
-0 -10 -10 0
-10 0 0 0
-10 0 0 0
 
 FINAL_ECLIPSE_PACK
 !
