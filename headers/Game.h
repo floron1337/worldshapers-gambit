@@ -5,7 +5,7 @@
 
 class Game {
     unsigned max_fps = 60;
-    inline static Game* instance = nullptr;
+    static Game* instance;
 
     sf::RenderWindow window;
     SoundManager sound_manager;
@@ -13,7 +13,10 @@ class Game {
 
     explicit Game(unsigned max_fps_ = 60);
 public:
-    ~Game();
+    Game(Game& other) = delete;
+    Game& operator=(const Game& other) = delete;
+
+    ~Game() = default;
     void start();
     //void set_max_fps(unsigned max_fps_) { max_fps = max_fps_; }
     static Game* getInstance();

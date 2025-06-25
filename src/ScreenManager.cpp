@@ -13,6 +13,9 @@ ScreenManager::ScreenManager(sf::RenderWindow &window_, SoundManager& sound_mana
     font_cache.add("./fonts/VeraMono.ttf");
     font_cache.add("./fonts/VeraMoBd.ttf");
 
+    texture_cache.add("./images/game_background.png");
+    texture_cache.add("./images/menu_background.png");
+
     current_screen_type = Constants::ScreensEnum::Menu;
     this->changeScreen(Constants::ScreensEnum::Menu);
     window.setMouseCursorVisible(true);

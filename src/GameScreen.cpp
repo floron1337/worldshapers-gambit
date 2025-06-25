@@ -13,10 +13,7 @@ GameScreen::GameScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_
     last_mouse_x = 0;
     monospace_font = screen_manager->getFontCache().get("./fonts/MonospaceBold.ttf");
 
-    if (!background_texture.loadFromFile("./images/game_background.png")) {
-        std::cerr << "Failed to load background image" << std::endl;
-        return;
-    }
+    background_texture = screen_manager->getTextureCache().get("./images/game_background.png");
     background_sprite.setTexture(background_texture);
 }
 

@@ -12,10 +12,8 @@
 SettingsScreen::SettingsScreen(sf::RenderWindow *window_, ScreenManager *screen_manager_) : Screen(window_, screen_manager_) {
     monospace_font = screen_manager->getFontCache().get("./fonts/VeraMono.ttf");
     monospace_font_bold = screen_manager->getFontCache().get("./fonts/VeraMoBd.ttf");
-    if (!background_texture.loadFromFile("./images/menu_background.png")) {
-        std::cerr << "Failed to load background image" << std::endl;
-        return;
-    }
+
+    background_texture = screen_manager->getTextureCache().get("./images/menu_background.png");
     background_sprite.setTexture(background_texture);
 }
 
