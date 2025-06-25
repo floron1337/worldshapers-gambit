@@ -14,9 +14,9 @@ Game::Game(unsigned max_fps_) : max_fps(max_fps_), window(sf::VideoMode::getDesk
     window.setFramerateLimit(max_fps);
 }
 
-Game& Game::getInstance() {
+Game* Game::getInstance() {
     static Game instance;
-    return instance;
+    return &instance;
 }
 
 void Game::start(){

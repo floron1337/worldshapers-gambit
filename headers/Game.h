@@ -20,7 +20,7 @@ public:
     ~Game() = default;
     void start();
     //void set_max_fps(unsigned max_fps_) { max_fps = max_fps_; }
-    static Game& getInstance();
+    static Game* getInstance();
 };
 
 #endif //GAME_H
