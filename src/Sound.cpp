@@ -21,6 +21,7 @@ Music::Music(const fs::path &song_path_) : Sound(song_path_) {
 
 void Music::play() {
     music.play();
+    music.setLoop(true);
 }
 
 void Music::stop() {

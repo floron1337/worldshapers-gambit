@@ -63,7 +63,7 @@ void TopBarGFX::drawTopBarElement(const sf::Texture &texture, sf::Sprite &sprite
     window.draw(sprite);
 
     if (card_change != 0) {
-        float radius = card_change < 25 ? 10.0f : 20.0f;
+        float radius = (abs(card_change) < 25) ? 10.0f : 20.0f;
         sf::CircleShape change_rect(radius);
         change_rect.setFillColor(sf::Color::White);
         change_rect.setPosition(x_pos, 140.0f);

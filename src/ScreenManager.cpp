@@ -37,7 +37,6 @@ void ScreenManager::changeScreen(Constants::ScreensEnum screen) {
 
     current_screen = std::move(new_screen);
     current_screen_type = screen;
-    std::cout << *this;
 }
 
 Constants::ScreensEnum ScreenManager::getCurrentScreen() const {

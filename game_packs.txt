@@ -49,31 +49,31 @@ protest.png
 0 -10 0 0
 0 0 0 0
 10 2 2 2
-A group of cyberterrorists has begun targeting Planetary Order systems - stealing classified data and disrupting infrastructure. LEFT: Do nothing about it, and hope that they retreat. RIGHT: Allocate extra funding to track them down.
+A group of cyberterrorists has begun targeting\nPlanetary Order systems - stealing classified data\nand disrupting infrastructure.\n\nLEFT: Do nothing about it, and hope that they retreat.\nRIGHT: Allocate extra funding to track them down.
 virus.png
 -10 0 5 0
 0 0 -10 0
 10 0 0 0
 0 0 0 0
-Your arms factories are struggling to keep pace with demand, so the military personnel is forced to make do with whatever they can get their hands on. Do you grant them more funding?
+Your arms factories are struggling to keep pace with demand,\nso the military personnel is forced to make do\nwith whatever they can get their hands on.\nDo you grant them more funding?
 weapon_production.png
 -5 0 0 5
 0 -2 0 0
 0 0 0 0
 0 0 0 0
-Thousands sleep in makeshift tents under bridges, while overcrowded shelters turn away families. The population is divided: people demand immediate action, but developers warn that rapid construction could spike debt. Do you wish to build more housing?
+Thousands sleep in makeshift tents under bridges,\nwhile overcrowded shelters turn away families.\nThe population is divided: people demand immediate action,\nbut developers warn that rapid construction could spike debt.\nDo you wish to build more housing?
 crane.png
 -10 5 0 0
 0 -5 0 0
 0 0 0 0
 0 0 0 0
-The ticker tapes scream red. Funds evaporate by the hour, corporate titans beg for bailouts, and your economists are split: RIGHT: Intervene now! LEFT: Let the market purge itself.
+The ticker tapes scream red.\nFunds evaporate by the hour, corporate titans beg for bailouts,\nand your economists are split:\n\nRIGHT: Intervene now!\nLEFT: Let the market purge itself.
 stocks_down.png
 0 5 2 0
 -10 -5 -2 0
 0 0 0 0
 0 0 0 0
-Smog stains the sky orange, children wear respirators to school, and the rivers bubble with chemical foam. Do you wish to ban fossil fuels?
+Smog stains the sky orange,\nchildren wear respirators to school,\nand the rivers bubble with chemical foam.\nDo you wish to ban fossil fuels?
 nuclear.png
 0 -10 -5 0
 -5 0 0 -10
@@ -83,80 +83,128 @@ nuclear.png
 GENERAL_PACK_2
 @FINAL_ECLIPSE_PACK
 back.png
-2
-1. The prisons are at maximum capacity. Hallways are stacked with inmates, gang wars errupt daily, and riots are leaving inmates and guards dead every other week. LEFT: Release non-violent offenders. RIGHT: Build mega-prisons.
-placeholder.png
+10
+The prisons are at maximum capacity.\nHallways are stacked with inmates, gang wars errupt daily,\nand riots are leaving inmates and guards dead every other week.\n\nLEFT: Release non-violent offenders.\nRIGHT: Build mega-prisons.
+prisoner.png
 -5 5 0 -2
 0 -10 0 0
 0 0 0 0
 0 0 0 0
-2. Satellites confirm the lagerst oil reserve in history beneath the melting Arctic ice - enough to power us for a century. But drilling guarantees ecological genocide. Do you proceed with the drilling operations?
-placeholder.png
+Satellites confirm the lagerst oil reserve in history\nbeneath the melting Arctic ice - enough to power us for a century.\nBut drilling guarantees ecological genocide.\nDo you proceed with the drilling operations?
+oil_drill.png
 5 -2 0 5
 0 0 0 -10
 0 0 0 0
 0 0 0 0
+Our Neural Wellbeing Index has plummeted to historic lows.\nSuicides and riots threaten to unravel society.\nOne of your advisors tells you that the best idea would be to lace\nthe drinking water with antidepressants.\nDo you want to do it?
+pills.png
+-10 5 0 0
+0 -2 0 0
+0 0 0 0
+0 0 0 0
+The Order's pension system is a pyramid scheme\non the verge of collapse. Your advisors give you 2 options\nto solve the crisis:\n\nLEFT: Raise the taxes for the young.\nRIGHT: Raise retirement to age 70.
+moneybag.png
+0 -10 -2 0
+-5 -5 -2 0
+0 0 0 0
+0 0 0 0
+A decade-long megadrought has turned rivers to dust\nand reservoirs into cracked wastelands.\nYou can either:\n\nLEFT: Give more water to farmers for their crops.\nRIGHT: Give more water to cities, where 70% of the population lives.
+drought.png
+5 -10 0 5
+-10 5 0 0
+0 0 0 0
+0 0 0 0
+Emergency rooms are overrun with untrained temps,\npharmacies have no one to fill prescriptions,\nand morgue trucks idle outside.\nDo you want to replace doctors with military medics?
+lab.png
+5 -5 -5 0
+0 5 0 0
+0 0 0 0
+0 0 0 0
+A century-year-old dam is structurally falling,\nthreatening both the population and economy.\nDo you want to patch it?
+crane.png
+-10 5 0 0
+0 -10 0 0
+0 0 0 0
+0 0 0 0
+Your economic decisions spark mass protests.\nAll of your security forces are overwhelmed.\nThe military stages a coup, blaming you for the chaos.
+riot.png
+0 -10 -10 0
+0 -10 -10 0
+10 0 0 0
+10 0 0 0
+The gunshots ring in your ears.\nYour own trusted lieutenant led the coup.\nThe bullet would have found your heart\nif not for the servant who took the bullet instead.\nWith your palace in flames, you seek refuge into a bunker.
+pistol.png
+0 -10 -10 0
+0 -10 -10 0
+10 0 0 0
+10 0 0 0
+The Eclipse marches onward.\nYour destiny is set in stone.\nYour throne is just a sinking pyre.\nResistance is futile - now, you must endure the fall.
+eclipse.png
+0 -10 -10 0
+0 -10 -10 0
+10 0 0 0
+10 0 0 0
 
 FINAL_ECLIPSE_PACK
 !
 eclipse_back.png
 10
 Every screen, every radio,\nevery shattered billboard erupts\nwith the same triumphant message:\n\nTHE PLANETARY ORDER HAS FALLEN.\n\nLONG LIVE THE ECLIPSE.
-placeholder.png
+tv.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They find you curled in the ruins\nof your palace, deep in your gilded bunker.\nThe air smells of sweat, fear,\nand the acrid stench of burning data drives.\nYour fingers still clutch\nthe Scepter of Office\nits weight now meaningless.
-placeholder.png
+burning_drive.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 The door explodes inward.\nRed-eyed Eclipse militants\ntrain their rifles on you.\n\n'ON YOUR KNEES,' one snarls.
-placeholder.png
+door_broken.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 You hesitate, just for a second\nbefore the butt of a rifle smashes into your spine.\nYou collapse.\nThe scepter clatters to the floor.
-placeholder.png
+scepter.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They drag you through the streets.\nThe crowd screams.\nRocks, rotten food, and spit rain down on you.\nA masked Eclipse judge reads the charges:
-placeholder.png
+dragged.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Crimes against humanity.\nEconomic tyranny.\nThe theft of a promised future.
-placeholder.png
+sentence.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 They throw you into a lightless concrete box.\nNo bed. No window.\nJust a bucket and a single flickering bulb.\nSomewhere, a speaker plays the crowds\noutside chanting for your death.\n
-placeholder.png
+handcuffs.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Dawn arrives.\nThey march you to the same square\nwhere you once gave speeches.\nA billion eyes watch.\nA noose waits. Or a firing squad. Or a guillotine.\nThe method doesn't matter.\nThe outcome is the same.
-placeholder.png
+execution.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Goodbye, you sorry excuse of a human.
-placeholder.png
+goodbye.png
 0 0 0 0
 0 0 0 0
 0 0 0 0
 0 0 0 0
 Let there be no states\nno wars\nno suffering\n\nLet us all live as one.\n\nGLORY TO THE ECLIPSE.
-placeholder.png
+eclipse.png
 0 0 0 0
 0 0 0 0
 0 0 0 0

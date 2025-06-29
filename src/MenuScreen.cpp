@@ -37,11 +37,13 @@ void MenuScreen::drawScreen() {
     window->draw(play_btn.getShape());
     window->draw(play_btn.getText());
 
+    /*
     Button settings_button("Settings", windowX / 2.0f, windowY / 2.0f + 150, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
     window->draw(settings_button.getShape());
     window->draw(settings_button.getText());
+    */
 
-    Button exit_button("End it", windowX / 2.0f, windowY / 2.0f + 250, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
+    Button exit_button("End it", windowX / 2.0f, windowY / 2.0f + 150, 300.0f, 75.0f, monospace_font, 32, sf::Color::Black, sf::Color::White);
     window->draw(exit_button.getShape());
     window->draw(exit_button.getText());
 
@@ -56,10 +58,12 @@ void MenuScreen::drawScreen() {
                 screen_manager->changeScreen(Constants::ScreensEnum::Game);
                 return;
             }
+            /*
             if (settings_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 screen_manager->changeScreen(Constants::ScreensEnum::Settings);
                 return;
             }
+            */
             if (exit_button.getShape().getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                 window->close();
                 return;
