@@ -76,7 +76,7 @@ void GameScreen::drawScreen() {
     years_in_power_text.setPosition(250, windowY - 85);
     window->draw(years_in_power_text);
 
-    //musicMenuGFX.drawMusicMenu();
+    musicMenuGFX.drawMusicMenu();
 
     int mouseX = -1;
 

@@ -30,5 +30,5 @@ void MusicMenuGFX::drawButton() {
     const sf::FloatRect bounds = music_button_sprite.getLocalBounds();
     music_button_sprite.setOrigin(bounds.width / 2.f,  bounds.height);
     music_button_sprite.setPosition(window.getSize().x - 60.0f, 75.0f);
-    window.draw(music_button_sprite);
+    //window.draw(music_button_sprite);
 }
